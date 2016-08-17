@@ -115,7 +115,6 @@ record(ai, "$(P)MAG:Z:CURR")
 record(stringin, "$(P)HX:TEMP")
 {
 	field(DESC, "HZ temperature")
-	#TODO Units??
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)HX:TEMP")
     field(SCAN, ".1 second")
@@ -125,7 +124,6 @@ record(stringin, "$(P)HX:TEMP")
 record(stringin, "$(P)SAMPLE:TEMP")
 {
 	field(DESC, "Sample temperature")
-	#TODO Units??
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)SAMPLE:TEMP")
     field(SCAN, ".1 second")
@@ -210,7 +208,7 @@ record(ao, "$(P)SAMPLE:TEMP:SP")
 record(ai, "$(P)PSU:X")
 {
 	field(DESC, "X PSU")
-	#TODO units
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)PSU:X")
     field(PREC, "3")
@@ -222,7 +220,7 @@ record(ai, "$(P)PSU:X")
 record(ai, "$(P)PSU:Y")
 {
 	field(DESC, "Y PSU")
-	#TODO units
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)PSU:Y")
     field(PREC, "3")
@@ -233,7 +231,7 @@ record(ai, "$(P)PSU:Y")
 record(ai, "$(P)PSU:Z")
 {
 	field(DESC, "Z PSU")
-	#TODO units
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)PSU:Z")
     field(PREC, "3")
@@ -258,7 +256,7 @@ record(stringin, "$(P)PSU:UNITS")
 record(ai, "$(P)PSU:X:SP:RBV")
 {
 	field(DESC, "PSU X target readback")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)PSU:X:SP")
     field(PREC, "3")
@@ -269,7 +267,7 @@ record(ai, "$(P)PSU:X:SP:RBV")
 record(ao, "$(P)PSU:X:SP")
 {
 	field(DESC, "PSU X target")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:X:SP")
     field(PREC, "3")
@@ -280,7 +278,7 @@ record(ao, "$(P)PSU:X:SP")
 record(ai, "$(P)PSU:Y:SP:RBV")
 {
 	field(DESC, "PSU Y target readback")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)PSU:Y:SP")
     field(PREC, "3")
@@ -291,7 +289,7 @@ record(ai, "$(P)PSU:Y:SP:RBV")
 record(ao, "$(P)PSU:Y:SP")
 {
 	field(DESC, "PSU Y target")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Y:SP")
     field(PREC, "3")
@@ -302,7 +300,7 @@ record(ao, "$(P)PSU:Y:SP")
 record(ai, "$(P)PSU:Z:SP:RBV")
 {
 	field(DESC, "PSU Z target readback")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)PSU:Z:SP")
     field(PREC, "3")
@@ -313,7 +311,7 @@ record(ai, "$(P)PSU:Z:SP:RBV")
 record(ao, "$(P)PSU:Z:SP")
 {
 	field(DESC, "PSU Z target")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Z:SP")
     field(PREC, "3")
@@ -323,7 +321,7 @@ record(ao, "$(P)PSU:Z:SP")
 record(ai, "$(P)PSU:X:RAMP:SP:RBV")
 {
 	field(DESC, "PSU X ramp readback")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)PSU:X:RAMP:SP")
     field(PREC, "3")
@@ -334,7 +332,7 @@ record(ai, "$(P)PSU:X:RAMP:SP:RBV")
 record(ao, "$(P)PSU:X:RAMP:SP")
 {
 	field(DESC, "PSU X ramp")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:X:RAMP:SP")
     field(PREC, "3")
@@ -345,7 +343,7 @@ record(ao, "$(P)PSU:X:RAMP:SP")
 record(ai, "$(P)PSU:Y:RAMP:SP:RBV")
 {
 	field(DESC, "PSU Y ramp readback")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)PSU:Y:RAMP:SP")
     field(PREC, "3")
@@ -356,7 +354,7 @@ record(ai, "$(P)PSU:Y:RAMP:SP:RBV")
 record(ao, "$(P)PSU:Y:RAMP:SP")
 {
 	field(DESC, "PSU Y ramp")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Y:RAMP:SP")
     field(PREC, "3")
@@ -367,7 +365,7 @@ record(ao, "$(P)PSU:Y:RAMP:SP")
 record(ai, "$(P)PSU:Z:RAMP:SP:RBV")
 {
 	field(DESC, "PSU Z ramp readback")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)PSU:Z:RAMP:SP")
     field(PREC, "3")
@@ -378,7 +376,7 @@ record(ai, "$(P)PSU:Z:RAMP:SP:RBV")
 record(ao, "$(P)PSU:Z:RAMP:SP")
 {
 	field(DESC, "PSU Z ramp")
-	#TODO UNITS
+	field(EGU, "") # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Z:RAMP:SP")
     field(PREC, "3")
@@ -543,3 +541,25 @@ record(bi, "$(P)STAT")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 }
+
+# Read LabVIEW control/indicator "ANV position" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(ai, "$(P)ANV:POS:SP:RBV")
+{
+	field(DESC, "Position of the needle valve readback")
+	field(EGU, "V")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn(lvfp,0,0)ANV:POS:SP")
+    field(PREC, "3")
+    field(SCAN, ".1 second")
+}
+
+# Write to LabVIEW control "ANV position" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(ao, "$(P)ANV:POS:SP")
+{
+	field(DESC, "Position of the needle valve")
+	field(EGU, "V")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn(lvfp,0,0)ANV:POS:SP")
+    field(PREC, "3")
+}
+

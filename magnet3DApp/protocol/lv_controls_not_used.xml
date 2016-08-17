@@ -122,10 +122,6 @@
       <!--Ignoring LabVIEW control "log-start-time" as it has invalid type "Time Stamp"-->
       <!--Ignoring LabVIEW control "instr_check_time" as it has invalid type "Time Stamp"-->
       <!--Ignoring LabVIEW control "loaded_array" as it has invalid type "Array"-->
-      <param name="ANV_position" type="float64">
-        <read method="GCV" target="ANV position"/>
-        <set method="SCV" extint="true" target="ANV position"/>
-      </param>
       <!--Ignoring LabVIEW control "psh_start_time" as it has invalid type "Time Stamp"-->
       <!--Ignoring LabVIEW control "reply_change_time" as it has invalid type "Time Stamp"-->
 

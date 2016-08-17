@@ -326,6 +326,10 @@
         <read method="GCV" target="status_box"/>
       </param>
 	  
+      <param name="ANV:POS:SP" type="float64">
+        <read method="GCV" target="ANV position"/>
+        <set method="SCV" extint="true" target="ANV position"/>
+      </param>
 	  
 
     </vi>
