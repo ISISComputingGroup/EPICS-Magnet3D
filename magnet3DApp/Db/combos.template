@@ -27,6 +27,8 @@ record(mbbi, "$(P)$(BASE_NAME)")
 	field(FRST, "$(FRST)")
 	field(FVST, "$(FVST)")
 	field(SXST, "$(SXST)")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "Heater 1" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -50,4 +52,5 @@ record(mbbi, "$(P)$(BASE_NAME):SP")
 	field(FVST, "$(FVST)")
 	field(SXST, "$(SXST)")
 	field(FLNK, "$(P)$(BASE_NAME):SP:RAW")
+	info(archive, "VAL")
 }

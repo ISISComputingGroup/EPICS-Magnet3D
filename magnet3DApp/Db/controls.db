@@ -20,6 +20,8 @@ record(ai, "$(P)MAG:TOTAL:FIELD")
     field(INP,  "@asyn(lvfp,0,0)MAG:TOTAL:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "theta_field" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -31,6 +33,8 @@ record(ai, "$(P)MAG:THETA:FIELD")
     field(INP,  "@asyn(lvfp,0,0)MAG:THETA:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "phi_field" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -42,6 +46,8 @@ record(ai, "$(P)MAG:PHI:FIELD")
     field(INP,  "@asyn(lvfp,0,0)MAG:PHI:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "x_field_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -53,6 +59,8 @@ record(ai, "$(P)MAG:X:FIELD")
     field(INP,  "@asyn(lvfp,0,0)MAG:X:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "x_current_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -64,6 +72,8 @@ record(ai, "$(P)MAG:X:CURR")
     field(INP,  "@asyn(lvfp,0,0)MAG:X:CURR")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "y_field_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -75,6 +85,8 @@ record(ai, "$(P)MAG:Y:FIELD")
     field(INP,  "@asyn(lvfp,0,0)MAG:Y:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "y_current_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -86,6 +98,8 @@ record(ai, "$(P)MAG:Y:CURR")
     field(INP,  "@asyn(lvfp,0,0)MAG:Y:CURR")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 
@@ -98,6 +112,8 @@ record(ai, "$(P)MAG:Z:FIELD")
     field(INP,  "@asyn(lvfp,0,0)MAG:Z:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "z_current_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -109,6 +125,8 @@ record(ai, "$(P)MAG:Z:CURR")
     field(INP,  "@asyn(lvfp,0,0)MAG:Z:CURR")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "Ch. A" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -118,6 +136,8 @@ record(stringin, "$(P)HX:TEMP")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)HX:TEMP")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "Ch. B" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -127,6 +147,8 @@ record(stringin, "$(P)SAMPLE:TEMP")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)SAMPLE:TEMP")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "Loop 1" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -138,6 +160,8 @@ record(ai, "$(P)LOOP1:HEATER")
     field(INP,  "@asyn(lvfp,0,0)LOOP1:HEATER")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "Loop 2" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -149,6 +173,8 @@ record(ai, "$(P)LOOP2:HEATER")
     field(INP,  "@asyn(lvfp,0,0)LOOP2:HEATER")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 
@@ -156,10 +182,13 @@ record(ai, "$(P)LOOP2:HEATER")
 record(ai, "$(P)HX:TEMP:SP:RBV")
 {
 	field(DESC, "Sample target temperature readback")
+	field(EGU, "")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)HX:TEMP:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "target_temp" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -169,6 +198,7 @@ record(ao, "$(P)HX:TEMP:SP")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)HX:TEMP:SP")
     field(PREC, "3")
+	info(archive, "VAL")
 }
 
 
@@ -176,10 +206,13 @@ record(ao, "$(P)HX:TEMP:SP")
 record(ai, "$(P)SAMPLE:TEMP:SP:RBV")
 {
 	field(DESC, "Sample target temperature readback")
+	field(EGU, "")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)SAMPLE:TEMP:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "target_temp 2" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -189,6 +222,7 @@ record(ao, "$(P)SAMPLE:TEMP:SP")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)SAMPLE:TEMP:SP")
     field(PREC, "3")
+	info(archive, "VAL")
 }
 
 
@@ -213,6 +247,8 @@ record(ai, "$(P)PSU:X")
     field(INP,  "@asyn(lvfp,0,0)PSU:X")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 
@@ -225,6 +261,8 @@ record(ai, "$(P)PSU:Y")
     field(INP,  "@asyn(lvfp,0,0)PSU:Y")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "z_psu_now" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -236,6 +274,8 @@ record(ai, "$(P)PSU:Z")
     field(INP,  "@asyn(lvfp,0,0)PSU:Z")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 
@@ -250,6 +290,8 @@ record(stringin, "$(P)PSU:UNITS")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)PSU:UNITS")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "x_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -261,6 +303,8 @@ record(ai, "$(P)PSU:X:SP:RBV")
     field(INP,  "@asyn(lvfp,0,0)PSU:X:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "x_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -271,6 +315,7 @@ record(ao, "$(P)PSU:X:SP")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:X:SP")
     field(PREC, "3")
+	info(archive, "VAL")
 }
 
 
@@ -283,6 +328,8 @@ record(ai, "$(P)PSU:Y:SP:RBV")
     field(INP,  "@asyn(lvfp,0,0)PSU:Y:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "y_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -293,6 +340,7 @@ record(ao, "$(P)PSU:Y:SP")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Y:SP")
     field(PREC, "3")
+	info(archive, "VAL")
 }
 
 
@@ -305,6 +353,8 @@ record(ai, "$(P)PSU:Z:SP:RBV")
     field(INP,  "@asyn(lvfp,0,0)PSU:Z:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "z_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -315,6 +365,7 @@ record(ao, "$(P)PSU:Z:SP")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Z:SP")
     field(PREC, "3")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "x_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -326,6 +377,8 @@ record(ai, "$(P)PSU:X:RAMP:SP:RBV")
     field(INP,  "@asyn(lvfp,0,0)PSU:X:RAMP:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "x_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -336,6 +389,7 @@ record(ao, "$(P)PSU:X:RAMP:SP")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:X:RAMP:SP")
     field(PREC, "3")
+	info(archive, "VAL")
 }
 
 
@@ -348,6 +402,8 @@ record(ai, "$(P)PSU:Y:RAMP:SP:RBV")
     field(INP,  "@asyn(lvfp,0,0)PSU:Y:RAMP:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "y_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -358,6 +414,7 @@ record(ao, "$(P)PSU:Y:RAMP:SP")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Y:RAMP:SP")
     field(PREC, "3")
+	info(archive, "VAL")
 }
 
 
@@ -370,6 +427,8 @@ record(ai, "$(P)PSU:Z:RAMP:SP:RBV")
     field(INP,  "@asyn(lvfp,0,0)PSU:Z:RAMP:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "z_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -380,6 +439,7 @@ record(ao, "$(P)PSU:Z:RAMP:SP")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Z:RAMP:SP")
     field(PREC, "3")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "zero_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -388,8 +448,21 @@ record(bo, "$(P)PSU:ZERO:SP")
 	field(DESC, "ZERO PSU Settings")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn(lvfp,0,0)PSU:ZERO:SP")
-    field(ZNAM, "UP")
-    field(ONAM, "DOWN")
+    field(ZNAM, "READY")
+    field(ONAM, "SETTING TO ZERO")
+}
+
+# Write to LabVIEW control "ramp_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(bi, "$(P)PSU:RAMP:SP:RBV")
+{
+	field(DESC, "Set power supplies ramping readback")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn(lvfp,0,0)PSU:RAMP:SP")
+    field(SCAN, ".1 second")	
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")	
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "ramp_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -398,10 +471,9 @@ record(bo, "$(P)PSU:RAMP:SP")
 	field(DESC, "Set power supplies ramping")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn(lvfp,0,0)PSU:RAMP:SP")
-    field(ZNAM, "RAMP power supplies")
-    field(ONAM, "")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")	
 }
-
 
 # Read LabVIEW control/indicator "pause_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
 record(bi, "$(P)PSU:PAUSE:SP:RBV")
@@ -412,6 +484,8 @@ record(bi, "$(P)PSU:PAUSE:SP:RBV")
     field(SCAN, ".1 second")
     field(ZNAM, "UNPAUSED")
     field(ONAM, "PAUSED")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "pause_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -420,8 +494,8 @@ record(bo, "$(P)PSU:PAUSE:SP")
 	field(DESC, "Pause PSU ramping")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn(lvfp,0,0)PSU:PAUSE:SP")
-    field(ZNAM, "PAUSE")
-    field(ONAM, "")
+    field(ZNAM, "UNPAUSE")
+    field(ONAM, "PAUSE")
 }
 
 
@@ -433,6 +507,7 @@ record(bo, "$(P)HEATER:Z:SP")
     field(OUT,  "@asyn(lvfp,0,0)HEATER:Z:SP")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "ypsh_slider" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -443,6 +518,7 @@ record(bo, "$(P)HEATER:Y:SP")
     field(OUT,  "@asyn(lvfp,0,0)HEATER:Y:SP")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "xpsh_slider" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -453,6 +529,7 @@ record(bo, "$(P)HEATER:X:SP")
     field(OUT,  "@asyn(lvfp,0,0)HEATER:X:SP")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
+	info(archive, "VAL")
 }
 
 
@@ -467,6 +544,8 @@ record(stringin, "$(P)HEATER:STATUS")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)HEATER:STATUS")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 
@@ -479,6 +558,8 @@ record(bi, "$(P)HEATER:X:SP:RBV")
     field(SCAN, ".1 second")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 
@@ -491,6 +572,8 @@ record(bi, "$(P)HEATER:Y:SP:RBV")
     field(SCAN, ".1 second")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "zpsh_led_on" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -502,6 +585,8 @@ record(bi, "$(P)HEATER:Z:SP:RBV")
     field(SCAN, ".1 second")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 ## Creating both stringout/stringin and waveform records for "hlm_chA" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -515,6 +600,8 @@ record(stringin, "$(P)A:HE_LEVEL")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)A:HE_LEVEL")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 ## Creating both stringout/stringin and waveform records for "hlm_chB" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -528,6 +615,8 @@ record(stringin, "$(P)B:HE_LEVEL")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)B:HE_LEVEL")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 
@@ -540,6 +629,8 @@ record(bi, "$(P)STAT")
     field(SCAN, ".1 second")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "ANV position" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -551,6 +642,8 @@ record(ai, "$(P)ANV:POS:SP:RBV")
     field(INP,  "@asyn(lvfp,0,0)ANV:POS:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Write to LabVIEW control "ANV position" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
