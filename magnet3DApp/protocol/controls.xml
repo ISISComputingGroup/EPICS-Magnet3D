@@ -1,0 +1,947 @@
+<VI syntaxVersion="11" LVversion="10008000" revision="531" name="Vector-control-v16isis.vi">
+<TITLE></TITLE>
+<HELP_PATH></HELP_PATH>
+<HELP_TAG></HELP_TAG>
+<RTM_PATH type="default"></RTM_PATH>
+<DESC></DESC>
+<CONTENT>
+	<GROUPER>
+		<PARTS>
+		</PARTS></GROUPER>
+	<LABEL><STEXT>Vector Magnet</STEXT></LABEL>
+	<LABEL><STEXT>Magnetic Field</STEXT></LABEL>
+	<LABEL><STEXT>PSU Settings</STEXT></LABEL>
+	<LABEL><STEXT>Persistent Switch Heaters</STEXT></LABEL>
+	<LABEL><STEXT>Temperature Controller</STEXT></LABEL>
+	<LABEL><STEXT>Helium Level Meter</STEXT></LABEL>
+	<LABEL><STEXT>Remote Interface</STEXT></LABEL>
+	<LABEL><STEXT>AutoRamp</STEXT></LABEL>
+	<CONTROL ID="79" type="Boolean" name="EXIT">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>EXIT</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>EXIT</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="b_field">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>b_field</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="theta_field">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>theta_field</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="phi_field">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>phi_field</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<LABEL><STEXT>X axis</STEXT></LABEL>
+	<LABEL><STEXT>Y axis</STEXT></LABEL>
+	<LABEL><STEXT>Z axis</STEXT></LABEL>
+	<CONTROL ID="80" type="Numeric" name="x_field_mag">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>x_field_mag</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="x_current_mag">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>x_current_mag</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="y_field_mag">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>y_field_mag</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="y_current_mag">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>y_current_mag</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="z_field_mag">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>z_field_mag</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="z_current_mag">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>z_current_mag</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="81" type="String" name="Ch. A">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>HX</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+	<CONTROL ID="81" type="String" name="Ch. B">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Smpl</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="Loop 1">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Loop 1</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="Loop 2">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Loop 2</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="target_temp">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Target-HX</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="SET target">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>SET Targets</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>SET target</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="181" type="Combo Box" name="Heater 1">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8004" order="0" type="Listbox Display">
+				<CONTROL ID="230" type="Listbox" name="">
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+						<GROUPER>
+							<PARTS>
+							</PARTS></GROUPER>
+						<PART ID="82" order="0" type="Caption"><LABEL><STEXT></STEXT></LABEL></PART>
+					</PARTS>
+					<PRIV>
+						<CELL_FONTS>
+							[-2 -2]
+						</CELL_FONTS>
+						<ROW_HEADER>
+						</ROW_HEADER>
+						<COL_HEADER>
+						</COL_HEADER>
+						<STRINGS>
+							<STRING>OFF</STRING>
+							<STRING>PID</STRING>
+							<STRING>RAMPT</STRING>
+							<STRING>TABLE</STRING>
+						</STRINGS>
+					</PRIV>
+				</CONTROL>
+			</PART>
+			<PART ID="8005" order="0" type="Data Display"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Htr1-HX</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="181" type="Combo Box" name="Heater 2">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8004" order="0" type="Listbox Display">
+				<CONTROL ID="230" type="Listbox" name="">
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+						<GROUPER>
+							<PARTS>
+							</PARTS></GROUPER>
+						<PART ID="82" order="0" type="Caption"><LABEL><STEXT></STEXT></LABEL></PART>
+					</PARTS>
+					<PRIV>
+						<CELL_FONTS>
+							[-2 -2]
+						</CELL_FONTS>
+						<ROW_HEADER>
+						</ROW_HEADER>
+						<COL_HEADER>
+						</COL_HEADER>
+						<STRINGS>
+							<STRING>OFF</STRING>
+							<STRING>PID</STRING>
+							<STRING>RAMPT</STRING>
+							<STRING>TABLE</STRING>
+						</STRINGS>
+					</PRIV>
+				</CONTROL>
+			</PART>
+			<PART ID="8005" order="0" type="Data Display"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Htr2-Smpl</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="181" type="Combo Box" name="ChAunits">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8004" order="0" type="Listbox Display">
+				<CONTROL ID="230" type="Listbox" name="">
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+						<GROUPER>
+							<PARTS>
+							</PARTS></GROUPER>
+						<PART ID="82" order="0" type="Caption"><LABEL><STEXT></STEXT></LABEL></PART>
+					</PARTS>
+					<PRIV>
+						<CELL_FONTS>
+							[-2 -2]
+						</CELL_FONTS>
+						<ROW_HEADER>
+						</ROW_HEADER>
+						<COL_HEADER>
+						</COL_HEADER>
+						<STRINGS>
+							<STRING>K</STRING>
+							<STRING>F</STRING>
+							<STRING>C</STRING>
+							<STRING>S</STRING>
+						</STRINGS>
+					</PRIV>
+				</CONTROL>
+			</PART>
+			<PART ID="8005" order="0" type="Data Display"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ChAunits</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="181" type="Combo Box" name="ChBunits">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8004" order="0" type="Listbox Display">
+				<CONTROL ID="230" type="Listbox" name="">
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+						<GROUPER>
+							<PARTS>
+							</PARTS></GROUPER>
+						<PART ID="82" order="0" type="Caption"><LABEL><STEXT></STEXT></LABEL></PART>
+					</PARTS>
+					<PRIV>
+						<CELL_FONTS>
+							[-2 -2]
+						</CELL_FONTS>
+						<ROW_HEADER>
+						</ROW_HEADER>
+						<COL_HEADER>
+						</COL_HEADER>
+						<STRINGS>
+							<STRING>K</STRING>
+							<STRING>F</STRING>
+							<STRING>C</STRING>
+							<STRING>S</STRING>
+						</STRINGS>
+					</PRIV>
+				</CONTROL>
+			</PART>
+			<PART ID="8005" order="0" type="Data Display"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ChBunits</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<LABEL><STEXT>X</STEXT></LABEL>
+	<LABEL><STEXT>Y</STEXT></LABEL>
+	<LABEL><STEXT>Z</STEXT></LABEL>
+	<LABEL><STEXT>PSU</STEXT></LABEL>
+	<LABEL><STEXT>Target</STEXT></LABEL>
+	<LABEL><STEXT>Ramp</STEXT></LABEL>
+	<CONTROL ID="181" type="Combo Box" name="target_units">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8004" order="0" type="Listbox Display">
+				<CONTROL ID="230" type="Listbox" name="">
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+						<GROUPER>
+							<PARTS>
+							</PARTS></GROUPER>
+						<PART ID="82" order="0" type="Caption"><LABEL><STEXT></STEXT></LABEL></PART>
+					</PARTS>
+					<PRIV>
+						<CELL_FONTS>
+							[-2 -2]
+						</CELL_FONTS>
+						<ROW_HEADER>
+						</ROW_HEADER>
+						<COL_HEADER>
+						</COL_HEADER>
+						<STRINGS>
+							<STRING>A</STRING>
+							<STRING>T</STRING>
+						</STRINGS>
+					</PRIV>
+				</CONTROL>
+			</PART>
+			<PART ID="8005" order="0" type="Data Display"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>target_units</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="181" type="Combo Box" name="ramp_units">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8004" order="0" type="Listbox Display">
+				<CONTROL ID="230" type="Listbox" name="">
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+						<GROUPER>
+							<PARTS>
+							</PARTS></GROUPER>
+						<PART ID="82" order="0" type="Caption"><LABEL><STEXT></STEXT></LABEL></PART>
+					</PARTS>
+					<PRIV>
+						<CELL_FONTS>
+							[-2 -2]
+						</CELL_FONTS>
+						<ROW_HEADER>
+						</ROW_HEADER>
+						<COL_HEADER>
+						</COL_HEADER>
+						<STRINGS>
+							<STRING>A/s</STRING>
+							<STRING>T/m</STRING>
+						</STRINGS>
+					</PRIV>
+				</CONTROL>
+			</PART>
+			<PART ID="8005" order="0" type="Data Display"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ramp_units</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="x_psu_now">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>x_psu_now</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="y_psu_now">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>y_psu_now</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="z_psu_now">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>z_psu_now</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="x_target_box">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>x_target_box</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="y_target_box">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>y_target_box</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="z_target_box">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>z_target_box</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="x_ramp_box">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>x_ramp_box</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="y_ramp_box">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>y_ramp_box</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="z_ramp_box">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>z_ramp_box</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="zero_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>ZERO</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>zero_button</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="ramp_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>RAMP power supplies</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ramp_button</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="pause_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>PAUSE</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>pause_button</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="zpsh_slider">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ZPSH</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="psh_change_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>SET PSH VALUES</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>set_psh_values</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="81" type="String" name="psh_label">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>psh_label</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+	<CONTROL ID="239" type="Radio Buttons" name="instrument">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>instrument</STEXT></LABEL></PART>
+		</PARTS>
+		<CONTENT>
+			<GROUPER>
+				<PARTS>
+				</PARTS></GROUPER>
+			<CONTROL ID="79" type="Boolean" name="hlm_rb">
+				<DESC></DESC>
+				<TIP></TIP>
+				<PARTS>
+					<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>He Level Meter</STRING></STRINGS></MLABEL></PART>
+					<PART ID="82" order="0" type="Caption"><LABEL><STEXT>hlm_rb</STEXT></LABEL></PART>
+				</PARTS>
+			</CONTROL>
+			<CONTROL ID="79" type="Boolean" name="tc_rb">
+				<DESC></DESC>
+				<TIP></TIP>
+				<PARTS>
+					<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>Temp. Contr.</STRING></STRINGS></MLABEL></PART>
+					<PART ID="82" order="0" type="Caption"><LABEL><STEXT>tc_rb</STEXT></LABEL></PART>
+				</PARTS>
+			</CONTROL>
+			<CONTROL ID="79" type="Boolean" name="z_psu_rb">
+				<DESC></DESC>
+				<TIP></TIP>
+				<PARTS>
+					<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>Z axis PSU</STRING></STRINGS></MLABEL></PART>
+					<PART ID="82" order="0" type="Caption"><LABEL><STEXT>z_psu_rb</STEXT></LABEL></PART>
+				</PARTS>
+			</CONTROL>
+			<CONTROL ID="79" type="Boolean" name="y_psu_rb">
+				<DESC></DESC>
+				<TIP></TIP>
+				<PARTS>
+					<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>Y axis PSU</STRING></STRINGS></MLABEL></PART>
+					<PART ID="82" order="0" type="Caption"><LABEL><STEXT>y_psu_rb</STEXT></LABEL></PART>
+				</PARTS>
+			</CONTROL>
+			<CONTROL ID="79" type="Boolean" name="x_psu_rb">
+				<DESC></DESC>
+				<TIP></TIP>
+				<PARTS>
+					<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>X axis PSU</STRING></STRINGS></MLABEL></PART>
+					<PART ID="82" order="0" type="Caption"><LABEL><STEXT>x_psu_rb</STEXT></LABEL></PART>
+				</PARTS>
+			</CONTROL>
+		</CONTENT>
+	</CONTROL>
+	<LABEL><STEXT>Enter</STEXT></LABEL>
+	<CONTROL ID="81" type="String" name="interface_send">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>interface_send</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+	<CONTROL ID="81" type="String" name="interface_reply">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>interface_reply</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+	<LABEL><STEXT>Response</STEXT></LABEL>
+	<CONTROL ID="79" type="Boolean" name="send_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>SEND</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>send_button</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="rampfile_loadbutton">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>File Load...</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>rampfile_loadbutton</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="81" type="String" name="rampfile_namestring">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>rampfile_namestring</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="ramp_point">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ramp_point</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="ramp_start_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>START</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ramp_start_button</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="ramp_next_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>&gt;</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ramp_next_button</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="ramp_back_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>&lt;</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ramp_back_button</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="ramp_stop_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>STOP</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ramp_stop_button</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="81" type="String" name="hlm_chA">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Level A</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+	<CONTROL ID="81" type="String" name="hlm_chB">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Level B</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+	<CONTROL ID="181" type="Combo Box" name="hlm_mode">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8004" order="0" type="Listbox Display">
+				<CONTROL ID="230" type="Listbox" name="">
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+						<GROUPER>
+							<PARTS>
+							</PARTS></GROUPER>
+						<PART ID="82" order="0" type="Caption"><LABEL><STEXT></STEXT></LABEL></PART>
+					</PARTS>
+					<PRIV>
+						<CELL_FONTS>
+							[-2 -2]
+						</CELL_FONTS>
+						<ROW_HEADER>
+						</ROW_HEADER>
+						<COL_HEADER>
+						</COL_HEADER>
+						<STRINGS>
+							<STRING>OFF</STRING>
+							<STRING>SLOW</STRING>
+							<STRING>FAST</STRING>
+							<STRING>CONT</STRING>
+						</STRINGS>
+					</PRIV>
+				</CONTROL>
+			</PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Mode</STEXT></LABEL></PART>
+			<PART ID="8005" order="0" type="Data Display"><LABEL><STEXT></STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<LABEL><STEXT>Sci-Mag Vector Magnet Control</STEXT></LABEL>
+	<CONTROL ID="81" type="String" name="psu_units_now">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>psu_units_now</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="xpsu_LED">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>xpsu_LED</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="ypsu_LED">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ypsu_LED</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="zpsu_LED">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>zpsu_LED</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="tc_LED">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>tc_LED</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="hlm_LED">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>hlm_LED</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="status_box">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>status_box</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<LABEL><STEXT>Logging</STEXT></LABEL>
+	<CONTROL ID="79" type="Boolean" name="logfile_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>Log File...</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>logfile_button</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="81" type="String" name="logfile_namestring">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>logfile_namestring</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="log_start_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>START</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>log_start_button</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="log_stop_button">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>STOP</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>log_stop_button</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<LABEL><STEXT>Interval (s)</STEXT></LABEL>
+	<CONTROL ID="80" type="Numeric" name="log_interval">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>log_interval</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="wait_remaining">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>wait_remaining</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="223" type="Time Stamp" name="ramp-pt-start-time">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8019" order="0" type="Browse Button">
+				<CONTROL ID="79" type="Boolean" >
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+					</PARTS>
+				</CONTROL>
+			</PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ramp-pt-start-time</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="223" type="Time Stamp" name="log-start-time">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8019" order="0" type="Browse Button">
+				<CONTROL ID="79" type="Boolean" >
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+					</PARTS>
+				</CONTROL>
+			</PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>log-start-time</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="223" type="Time Stamp" name="instr_check_time">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8019" order="0" type="Browse Button">
+				<CONTROL ID="79" type="Boolean" >
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+					</PARTS>
+				</CONTROL>
+			</PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>instr_check_time</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="82" type="Array" name="loaded_array">
+		<DESC>all rows is the data read from the file.</DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>loaded_array</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT>
+			<ARRAY nElems="0">
+			</ARRAY>
+		</DEFAULT>
+		<CONTENT>
+			<CONTROL ID="81" type="String" name="String">
+				<DESC>all rows is the data read from the file.</DESC>
+				<TIP></TIP>
+				<PARTS>
+					<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+					<PART ID="82" order="0" type="Caption"><LABEL><STEXT>String</STEXT></LABEL></PART>
+				</PARTS>
+				<DEFAULT></DEFAULT>
+			</CONTROL>
+		</CONTENT>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="ANV position">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ANV position</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="223" type="Time Stamp" name="psh_start_time">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8019" order="0" type="Browse Button">
+				<CONTROL ID="79" type="Boolean" >
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+					</PARTS>
+				</CONTROL>
+			</PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>psh_start_time</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="223" type="Time Stamp" name="reply_change_time">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="8019" order="0" type="Browse Button">
+				<CONTROL ID="79" type="Boolean" >
+					<DESC></DESC>
+					<TIP></TIP>
+					<PARTS>
+					</PARTS>
+				</CONTROL>
+			</PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>reply_change_time</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="80" type="Numeric" name="target_temp 2">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>Target-Smpl</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="xpsh_led_on">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ON</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="xpsh_led_off">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>OFF</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="ypsh_led_on">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ypsh_led_on</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="ypsh_led_off">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ypsh_led_off</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="zpsh_led_on">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>zpsh_led_on</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="zpsh_led_off">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>zpsh_led_off</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="ypsh_slider">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>YPSH</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="79" type="Boolean" name="xpsh_slider">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="22" order="0" type="Boolean Text"><MLABEL><STRINGS><STRING>OFF</STRING><STRING>ON</STRING><STRING>OFF</STRING><STRING>ON</STRING></STRINGS></MLABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>XPSH</STEXT></LABEL></PART>
+		</PARTS>
+	</CONTROL>
+	<CONTROL ID="81" type="String" name="ramp_point_max">
+		<DESC></DESC>
+		<TIP></TIP>
+		<PARTS>
+			<PART ID="11" order="0" type="Text"><LABEL><STEXT></STEXT></LABEL></PART>
+			<PART ID="82" order="0" type="Caption"><LABEL><STEXT>ramp_point_max</STEXT></LABEL></PART>
+		</PARTS>
+		<DEFAULT></DEFAULT>
+	</CONTROL>
+</CONTENT>
+</VI>
+
+
