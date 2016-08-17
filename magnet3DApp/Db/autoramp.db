@@ -1,0 +1,109 @@
+# Controls for the auto ramp.
+# These are probably not needed
+
+
+# Read LabVIEW control/indicator "rampfile_namestring" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(stringin, "$(P)AUTORAMP:FILENAME")
+{
+	field(DESC, "Autoramp filename")
+    field(DTYP, "asynOctetRead")
+    field(INP,  "@asyn(lvfp,0,0)AUTORAMP:FILENAME")
+    field(SCAN, ".1 second")
+}
+
+
+# Read LabVIEW control/indicator "ramp_point" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(ai, "$(P)AUTORAMP:POINT:SP:RBV")
+{
+	field(DESC, "Autoramp point readback")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn(lvfp,0,0)AUTORAMP:POINT:SP")
+    field(PREC, "3")
+    field(SCAN, ".1 second")
+}
+
+# Write to LabVIEW control "ramp_point" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(ao, "$(P)AUTORAMP:POINT:SP")
+{
+	field(DESC, "Autoramp point")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:POINT:SP")
+    field(PREC, "3")
+}
+
+
+## Creating both stringout/stringin and waveform records for "ramp_point_max" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+## EPICS strings are restricted to 40 characters in length, if your strings are
+## longer than this choose the character waveform records and adjust NELM if necessary
+
+# Read LabVIEW control/indicator "ramp_point_max" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(stringin, "$(P)AUTORAMP:POINT:MAX")
+{
+	field(DESC, "Max autoramp point")
+    field(DTYP, "asynOctetRead")
+    field(INP,  "@asyn(lvfp,0,0)AUTORAMP:POINT:MAX")
+    field(SCAN, ".1 second")
+}
+
+
+# Write to LabVIEW control "ramp_start_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(bo, "$(P)AUTORAMP:START")
+{
+	field(DESC, "Autoramp start")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:START")
+    field(ZNAM, "START")
+    field(ONAM, "")
+}
+
+
+# Write to LabVIEW control "ramp_next_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(bo, "$(P)AUTORAMP:NEXT")
+{
+	field(DESC, "Next ramp")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:NEXT")
+    field(ZNAM, "Next")
+    field(ONAM, "")
+}
+
+
+# Write to LabVIEW control "ramp_back_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(bo, "$(P)AUTORAMP:LAST")
+{
+	field(DESC, "Last ramp")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:LAST")
+    field(ZNAM, "Last")
+    field(ONAM, "")
+}
+
+# Write to LabVIEW control "ramp_stop_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(bo, "$(P)AUTORAMP:STOP")
+{
+	field(DESC, "Stop autoramp")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:STOP")
+    field(ZNAM, "STOP")
+    field(ONAM, "")
+}
+
+
+# Read LabVIEW control/indicator "wait_remaining" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(ai, "$(P)AUTORAMP:WAIT:REMAIN:RBV")
+{
+	field(DESC, "Autoramp remain wait readback")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn(lvfp,0,0)AUTORAMP:WAIT:REMAIN")
+    field(PREC, "3")
+    field(SCAN, ".1 second")
+}
+
+# Write to LabVIEW control "wait_remaining" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(ao, "$(P)AUTORAMP:WAIT:REMAIN")
+{
+	field(DESC, "Autoramp remain wait")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:WAIT:REMAIN")
+    field(PREC, "3")
+}

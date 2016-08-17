@@ -12,101 +12,101 @@
 # 
       
 # Read LabVIEW control/indicator "b_field" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)MAG:FIELD")
+record(ai, "$(P)MAG:TOTAL:FIELD")
 {
 	field(DESC, "Magnetic field magnitude")
 	field(EGU, "T")
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)MAG:FIELD")
+    field(INP,  "@asyn(lvfp,0,0)MAG:TOTAL:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Read LabVIEW control/indicator "theta_field" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)THETA:FIELD")
+record(ai, "$(P)MAG:THETA:FIELD")
 {
 	field(DESC, "Magnetic field angle theta")
 	field(EGU, "degree")
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)THETA:FIELD")
+    field(INP,  "@asyn(lvfp,0,0)MAG:THETA:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Read LabVIEW control/indicator "phi_field" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)PHI:FIELD")
+record(ai, "$(P)MAG:PHI:FIELD")
 {
 	field(DESC, "Magnetic field angle phi")
 	field(EGU, "degree")
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)PHI:FIELD")
+    field(INP,  "@asyn(lvfp,0,0)MAG:PHI:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Read LabVIEW control/indicator "x_field_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)X:FIELD")
+record(ai, "$(P)MAG:X:FIELD")
 {
 	field(DESC, "X magnetic field")
 	field(EGU, "T")
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)X:FIELD")
+    field(INP,  "@asyn(lvfp,0,0)MAG:X:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Read LabVIEW control/indicator "x_current_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)X:CURR")
+record(ai, "$(P)MAG:X:CURR")
 {
 	field(DESC, "X current for magnetic field")
 	field(EGU, "A")
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)X:CURR")
+    field(INP,  "@asyn(lvfp,0,0)MAG:X:CURR")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Read LabVIEW control/indicator "y_field_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)Y:FIELD")
+record(ai, "$(P)MAG:Y:FIELD")
 {
 	field(DESC, "Y magnetic field")
 	field(EGU, "T")
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Y:FIELD")
+    field(INP,  "@asyn(lvfp,0,0)MAG:Y:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Read LabVIEW control/indicator "y_current_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)Y:CURR")
+record(ai, "$(P)MAG:Y:CURR")
 {
 	field(DESC, "Y current for magnetic field")
 	field(EGU, "A")
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Y:CURR")
+    field(INP,  "@asyn(lvfp,0,0)MAG:Y:CURR")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 
 # Read LabVIEW control/indicator "z_field_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)Z:FIELD")
+record(ai, "$(P)MAG:Z:FIELD")
 {
 	field(DESC, "Z magnetic field")
 	field(EGU, "T")
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Z:FIELD")
+    field(INP,  "@asyn(lvfp,0,0)MAG:Z:FIELD")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Read LabVIEW control/indicator "z_current_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)Z:CURR")
+record(ai, "$(P)MAG:Z:CURR")
 {
 	field(DESC, "Z current for magnetic field")
 	field(EGU, "A")
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Z:CURR")
+    field(INP,  "@asyn(lvfp,0,0)MAG:Z:CURR")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
@@ -195,101 +195,47 @@ record(ao, "$(P)SAMPLE:TEMP:SP")
 
 
 # Write to LabVIEW control "SET target" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)TARGETS:SET")
-{
-	field(DESC, "Send temperature targets to instrument")
-    field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)TARGETS:SET")
-    field(ZNAM, "SET Targets")
-    field(ONAM, "")
-}
-
-
-## Creating both stringout/stringin and waveform records for "Heater 1" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-## EPICS strings are restricted to 40 characters in length, if your strings are
-## longer than this choose the character waveform records and adjust NELM if necessary
-
-#TODO select one of these
-
-# Read LabVIEW control/indicator "Heater 1" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(stringin, "$(P)SAMPLE:TEMP:MODE:RAW")
-{
-	field(DESC, "Raw read of sample temp mode")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn(lvfp,0,0)SAMPLE:TEMP:MODE")
-	field(SCAN, ".1 second")
-}
-
-record(stringout, "$(P)SAMPLE:TEMP:MODE:RAW_PUSH")
-{
-	field(DESC, "Push raw value to a mbbi")
-    field(DOL, "$(P)SAMPLE:TEMP:MODE:RAW CP MS")
-	field(OMSL, "closed_loop")
-    field(OUT,  "$(P)SAMPLE:TEMP:MODE MS PP")
-}
-
-record(mbbi, "$(P)SAMPLE:TEMP:MODE")
-{
-	field(DESC, "Sample temperature mode")
-	field(DTYP, "Soft Channel")
-	field(ZRST, "OFF")
-	field(ONST, "PID")
-	field(TWST, "RAMPT")
-	field(THST, "TABLE")
-}
-
-# Write to LabVIEW control "Heater 1" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(stringout, "$(P)SAMPLE:TEMP:MODE:SP:RAW")
-{
-    field(DOL, "$(P)SAMPLE:TEMP:MODE:SP")
-	field(OMSL, "closed_loop")
-	field(DESC, "Raw string to set the mode to")
-    field(DTYP, "asynOctetWrite")
-    field(OUT,  "@asyn(lvfp,0,0)SAMPLE:TEMP:MODE")
-}
-
-record(mbbi, "$(P)SAMPLE:TEMP:MODE:SP")
-{
-	field(DESC, "Sample temperature mode set point")
-	field(ZRST, "OFF")
-	field(ONST, "PID")
-	field(TWST, "RAMPT")
-	field(THST, "TABLE")
-	field(FLNK, "$(P)SAMPLE:TEMP:MODE:SP:RAW")
-}
-
+# Not needed because lvdcom presses this button
+#record(bo, "$(P)TARGETS:SET")
+#{
+#	field(DESC, "Send temperature targets to instrument")
+#    field(DTYP, "asynInt32")
+#    field(OUT,  "@asyn(lvfp,0,0)TARGETS:SET")
+#    field(ZNAM, "SET Targets")
+#    field(ONAM, "")
+#}
 
 
 # Read LabVIEW control/indicator "x_psu_now" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)X:PSU")
+record(ai, "$(P)PSU:X")
 {
 	field(DESC, "X PSU")
 	#TODO units
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)X:PSU")
+    field(INP,  "@asyn(lvfp,0,0)PSU:X")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 
 # Read LabVIEW control/indicator "y_psu_now" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)Y:PSU")
+record(ai, "$(P)PSU:Y")
 {
 	field(DESC, "Y PSU")
 	#TODO units
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Y:PSU")
+    field(INP,  "@asyn(lvfp,0,0)PSU:Y")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Read LabVIEW control/indicator "z_psu_now" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)Z:PSU")
+record(ai, "$(P)PSU:Z")
 {
-	field(DESC, "X PSU")
+	field(DESC, "Z PSU")
 	#TODO units
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Z:PSU")
+    field(INP,  "@asyn(lvfp,0,0)PSU:Z")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
@@ -300,7 +246,7 @@ record(ai, "$(P)Z:PSU")
 ## longer than this choose the character waveform records and adjust NELM if necessary
 
 # Read LabVIEW control/indicator "psu_units_now" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(stringin, "$(P)PSU:UNITS_RBV")
+record(stringin, "$(P)PSU:UNITS")
 {
 	field(DESC, "Units for PSU X, Y and Z")
     field(DTYP, "asynOctetRead")
@@ -309,133 +255,132 @@ record(stringin, "$(P)PSU:UNITS_RBV")
 }
 
 # Read LabVIEW control/indicator "x_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)X:PSU:SP:RBV")
+record(ai, "$(P)PSU:X:SP:RBV")
 {
 	field(DESC, "PSU X target readback")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)X:PSU:SP")
+    field(INP,  "@asyn(lvfp,0,0)PSU:X:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Write to LabVIEW control "x_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ao, "$(P)X:PSU:SP")
+record(ao, "$(P)PSU:X:SP")
 {
 	field(DESC, "PSU X target")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(OUT,  "@asyn(lvfp,0,0)X:PSU:SP")
+    field(OUT,  "@asyn(lvfp,0,0)PSU:X:SP")
     field(PREC, "3")
 }
 
 
 # Read LabVIEW control/indicator "y_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)Y:PSU:SP:RBV")
+record(ai, "$(P)PSU:Y:SP:RBV")
 {
 	field(DESC, "PSU Y target readback")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Y:PSU:SP")
+    field(INP,  "@asyn(lvfp,0,0)PSU:Y:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Write to LabVIEW control "y_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ao, "$(P)Y:PSU:SP")
+record(ao, "$(P)PSU:Y:SP")
 {
 	field(DESC, "PSU Y target")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(OUT,  "@asyn(lvfp,0,0)Y:PSU:SP")
+    field(OUT,  "@asyn(lvfp,0,0)PSU:Y:SP")
     field(PREC, "3")
 }
 
 
 # Read LabVIEW control/indicator "z_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)Z:PSU:SP:RBV")
+record(ai, "$(P)PSU:Z:SP:RBV")
 {
 	field(DESC, "PSU Z target readback")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Z:PSU:SP")
+    field(INP,  "@asyn(lvfp,0,0)PSU:Z:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Write to LabVIEW control "z_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ao, "$(P)Z:PSU:SP")
+record(ao, "$(P)PSU:Z:SP")
 {
 	field(DESC, "PSU Z target")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(OUT,  "@asyn(lvfp,0,0)Z:PSU:SP")
+    field(OUT,  "@asyn(lvfp,0,0)PSU:Z:SP")
     field(PREC, "3")
 }
 
-
 # Read LabVIEW control/indicator "x_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)X:PSU:RAMP:SP:RBV")
+record(ai, "$(P)PSU:X:RAMP:SP:RBV")
 {
 	field(DESC, "PSU X ramp readback")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)X:PSU:RAMP:SP")
+    field(INP,  "@asyn(lvfp,0,0)PSU:X:RAMP:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Write to LabVIEW control "x_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ao, "$(P)X:PSU:RAMP:SP")
+record(ao, "$(P)PSU:X:RAMP:SP")
 {
 	field(DESC, "PSU X ramp")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(OUT,  "@asyn(lvfp,0,0)X:PSU:RAMP:SP")
+    field(OUT,  "@asyn(lvfp,0,0)PSU:X:RAMP:SP")
     field(PREC, "3")
 }
 
 
 # Read LabVIEW control/indicator "y_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)Y:PSU:RAMP:SP:RBV")
+record(ai, "$(P)PSU:Y:RAMP:SP:RBV")
 {
 	field(DESC, "PSU Y ramp readback")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Y:PSU:RAMP:SP")
+    field(INP,  "@asyn(lvfp,0,0)PSU:Y:RAMP:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Write to LabVIEW control "y_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ao, "$(P)Y:PSU:RAMP:SP")
+record(ao, "$(P)PSU:Y:RAMP:SP")
 {
 	field(DESC, "PSU Y ramp")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(OUT,  "@asyn(lvfp,0,0)Y:PSU:RAMP:SP")
+    field(OUT,  "@asyn(lvfp,0,0)PSU:Y:RAMP:SP")
     field(PREC, "3")
 }
 
 
 # Read LabVIEW control/indicator "z_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)Z:PSU:RAMP:SP:RBV")
+record(ai, "$(P)PSU:Z:RAMP:SP:RBV")
 {
 	field(DESC, "PSU Z ramp readback")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)Z:PSU:RAMP:SP")
+    field(INP,  "@asyn(lvfp,0,0)PSU:Z:RAMP:SP")
     field(PREC, "3")
     field(SCAN, ".1 second")
 }
 
 # Write to LabVIEW control "z_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ao, "$(P)Z:PSU:RAMP:SP")
+record(ao, "$(P)PSU:Z:RAMP:SP")
 {
 	field(DESC, "PSU Z ramp")
 	#TODO UNITS
     field(DTYP, "asynFloat64")
-    field(OUT,  "@asyn(lvfp,0,0)Z:PSU:RAMP:SP")
+    field(OUT,  "@asyn(lvfp,0,0)PSU:Z:RAMP:SP")
     field(PREC, "3")
 }
 
@@ -445,8 +390,8 @@ record(bo, "$(P)PSU:ZERO:SP")
 	field(DESC, "ZERO PSU Settings")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn(lvfp,0,0)PSU:ZERO:SP")
-    field(ZNAM, "ZERO")
-    field(ONAM, "")
+    field(ZNAM, "UP")
+    field(ONAM, "DOWN")
 }
 
 # Write to LabVIEW control "ramp_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -483,43 +428,33 @@ record(bo, "$(P)PSU:PAUSE:SP")
 
 
 # Write to LabVIEW control "zpsh_slider" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)Z:HEATER:SP")
+record(bo, "$(P)HEATER:Z:SP")
 {
 	field(DESC, "Z persistent switch heater")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)Z:HEATER:SP")
+    field(OUT,  "@asyn(lvfp,0,0)HEATER:Z:SP")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 }
 
 # Write to LabVIEW control "ypsh_slider" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)Y:HEATER:SP")
+record(bo, "$(P)HEATER:Y:SP")
 {
 	field(DESC, "Y persistent switch heater")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)Y:HEATER:SP")
+    field(OUT,  "@asyn(lvfp,0,0)HEATER:Y:SP")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 }
 
 # Write to LabVIEW control "xpsh_slider" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)X:HEATER:SP")
+record(bo, "$(P)HEATER:X:SP")
 {
 	field(DESC, "X persistent switch heater")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)X:HEATER:SP")
+    field(OUT,  "@asyn(lvfp,0,0)HEATER:X:SP")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
-}
-
-# Write to LabVIEW control "psh_change_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)HEATERS:SET")
-{
-	field(DESC, "Set persistent switch heater states")
-    field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)HEATERS:SET")
-    field(ZNAM, "SET PSH VALUES")
-    field(ONAM, "")
 }
 
 
@@ -538,11 +473,11 @@ record(stringin, "$(P)HEATER:STATUS")
 
 
 # Read LabVIEW control/indicator "xpsh_led_on" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)X:HEATER:SP:RBV")
+record(bi, "$(P)HEATER:X:SP:RBV")
 {
 	field(DESC, "X persistent switch heaters")
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn(lvfp,0,0)X:HEATER")
+    field(INP,  "@asyn(lvfp,0,0)HEATER:X")
     field(SCAN, ".1 second")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
@@ -550,137 +485,26 @@ record(bi, "$(P)X:HEATER:SP:RBV")
 
 
 # Read LabVIEW control/indicator "ypsh_led_on" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)Y:HEATER:SP:RBV")
+record(bi, "$(P)HEATER:Y:SP:RBV")
 {
 	field(DESC, "Y persistent switch heaters")
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn(lvfp,0,0)Y:HEATER")
+    field(INP,  "@asyn(lvfp,0,0)HEATER:Y")
     field(SCAN, ".1 second")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 }
 
 # Read LabVIEW control/indicator "zpsh_led_on" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)Z:HEATER:SP:RBV")
+record(bi, "$(P)HEATER:Z:SP:RBV")
 {
 	field(DESC, "Z persistent switch heaters")
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn(lvfp,0,0)Z:HEATER")
+    field(INP,  "@asyn(lvfp,0,0)HEATER:Z")
     field(SCAN, ".1 second")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 }
-
-## Creating both stringout/stringin and waveform records for "rampfile_namestring" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-## EPICS strings are restricted to 40 characters in length, if your strings are
-## longer than this choose the character waveform records and adjust NELM if necessary
-
-# Read LabVIEW control/indicator "rampfile_namestring" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(stringin, "$(P)AUTORAMP:FILENAME")
-{
-	field(DESC, "Autoramp filename")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn(lvfp,0,0)AUTORAMP:FILENAME")
-    field(SCAN, ".1 second")
-}
-
-
-# Read LabVIEW control/indicator "ramp_point" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)AUTORAMP:POINT:SP:RBV")
-{
-	field(DESC, "Autoramp point readback")
-    field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)AUTORAMP:POINT:SP")
-    field(PREC, "3")
-    field(SCAN, ".1 second")
-}
-
-# Write to LabVIEW control "ramp_point" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ao, "$(P)AUTORAMP:POINT:SP")
-{
-	field(DESC, "Autoramp point")
-    field(DTYP, "asynFloat64")
-    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:POINT:SP")
-    field(PREC, "3")
-}
-
-
-## Creating both stringout/stringin and waveform records for "ramp_point_max" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-## EPICS strings are restricted to 40 characters in length, if your strings are
-## longer than this choose the character waveform records and adjust NELM if necessary
-
-# Read LabVIEW control/indicator "ramp_point_max" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(stringin, "$(P)AUTORAMP:POINT:MAX")
-{
-	field(DESC, "Max autoramp point")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn(lvfp,0,0)AUTORAMP:POINT:MAX")
-    field(SCAN, ".1 second")
-}
-
-
-# Write to LabVIEW control "ramp_start_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)AUTORAMP:START")
-{
-	field(DESC, "Autoramp start")
-    field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:START")
-    field(ZNAM, "START")
-    field(ONAM, "")
-}
-
-
-# Write to LabVIEW control "ramp_next_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)AUTORAMP:NEXT")
-{
-	field(DESC, "Next ramp")
-    field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:NEXT")
-    field(ZNAM, "Next")
-    field(ONAM, "")
-}
-
-
-# Write to LabVIEW control "ramp_back_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)AUTORAMP:LAST")
-{
-	field(DESC, "Last ramp")
-    field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:LAST")
-    field(ZNAM, "Last")
-    field(ONAM, "")
-}
-
-# Write to LabVIEW control "ramp_stop_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)AUTORAMP:STOP")
-{
-	field(DESC, "Stop autoramp")
-    field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:STOP")
-    field(ZNAM, "STOP")
-    field(ONAM, "")
-}
-
-
-# Read LabVIEW control/indicator "wait_remaining" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ai, "$(P)AUTORAMP:WAIT:REMAIN:RBV")
-{
-	field(DESC, "Autoramp remain wait readback")
-    field(DTYP, "asynFloat64")
-    field(INP,  "@asyn(lvfp,0,0)AUTORAMP:WAIT:REMAIN")
-    field(PREC, "3")
-    field(SCAN, ".1 second")
-}
-
-# Write to LabVIEW control "wait_remaining" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(ao, "$(P)AUTORAMP:WAIT:REMAIN")
-{
-	field(DESC, "Autoramp remain wait")
-    field(DTYP, "asynFloat64")
-    field(OUT,  "@asyn(lvfp,0,0)AUTORAMP:WAIT:REMAIN")
-    field(PREC, "3")
-}
-
 
 ## Creating both stringout/stringin and waveform records for "hlm_chA" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
 ## EPICS strings are restricted to 40 characters in length, if your strings are

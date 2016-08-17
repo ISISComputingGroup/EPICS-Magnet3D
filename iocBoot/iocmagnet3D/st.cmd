@@ -27,6 +27,8 @@ lvDCOMConfigure("lvfp", "frontpanel", "${TOP}/data/lv_controls.xml")
 ################## Magnet 3D
 ## Load our record instances
 dbLoadRecords("db/controls.db","P=$(MYPVPREFIX)$(IOCNAME):,RECSIM=$(RECSIM=0),DISABLE=$(DISABLE=0)")
+dbLoadRecords("db/combos.db","P=$(MYPVPREFIX)$(IOCNAME):,RECSIM=$(RECSIM=0),DISABLE=$(DISABLE=0)")
+dbLoadRecords("db/unit_setter.db","P=$(MYPVPREFIX)$(IOCNAME):,RECSIM=$(RECSIM=0),DISABLE=$(DISABLE=0)")
 ####################
  
 ##ISIS## Stuff that needs to be done after all records are loaded but before iocInit is called 

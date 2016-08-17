@@ -1,0 +1,17 @@
+
+
+file combos.template { 
+  pattern 
+    {desc_what, P,    BASE_NAME,  ZRST, ONST, TWST, THST, FRST, FVST, SXST}
+    {"Sample heater mode", "\$(P)", "SAMPLE:HEATER:MODE", "OFF", "PID", "RAMPT", "TABLE", "", "", ""}
+    {"HX heater mode", "\$(P)", "HX:HEATER:MODE", "OFF", "PID", "RAMPT", "TABLE", "" , "", ""}
+    
+    {"HX temp units", "\$(P)", "HX:TEMP:UNITS", "K", "F", "C", "S", "" , "", ""}
+    {"Sample temp units", "\$(P)", "HX:SAMPLE:UNITS", "K", "F", "C", "S", "" , "", ""}
+
+    {"PSU units", "\$(P)", "PSU:SP:UNITS", "A", "T", "", "", "" , "", ""}
+    {"PSU Ramp units","\$(P)", "PSU:RAMP:SP:UNITS", "A/s", "T/m", "", "", "" , "", ""}
+    
+    {"He level mode", "\$(P)", "HE_LEVEL:MODE", "OFF", "SLOW", "FAST", "CONT", "" , "", ""}
+}
+

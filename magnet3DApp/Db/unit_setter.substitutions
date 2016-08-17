@@ -1,0 +1,26 @@
+
+
+file combo.template { 
+  pattern 
+    {P,    FROM, TO}
+    {"\$(P)", "PSU:SP:UNITS:RAW", "PSU:X:SP"}
+    {"\$(P)", "PSU:SP:UNITS:RAW", "PSU:Y:SP"}
+    {"\$(P)", "PSU:SP:UNITS:RAW", "PSU:Z:SP"}
+    
+    {"\$(P)", "PSU:SP:UNITS:RAW", "PSU:X:SP:RBV"}
+    {"\$(P)", "PSU:SP:UNITS:RAW", "PSU:Y:SP:RBV"}
+    {"\$(P)", "PSU:SP:UNITS:RAW", "PSU:Z:SP:RBV"}
+    
+    {"\$(P)", "PSU:UNITS", "PSU:X"}
+    {"\$(P)", "PSU:UNITS", "PSU:Y"}
+    {"\$(P)", "PSU:UNITS", "PSU:Z"}
+    
+    {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:X:RAMP:SP:RBV"}
+    {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:Y:RAMP:SP:RBV"}
+    {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:Z:RAMP:SP:RBV"}
+    
+    {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:X:RAMP:SP"}
+    {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:Y:RAMP:SP"}
+    {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:Z:RAMP:SP"}
+}
+

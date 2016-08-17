@@ -11,6 +11,8 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install) into <top>/db
 # databases, templates, substitutions like this
 DB += controls.db
+DB += combos.db
+DB += unit_setter.db
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add

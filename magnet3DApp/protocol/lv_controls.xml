@@ -10,32 +10,32 @@
       <!--The <param /> maps an asyn driver parameter "name" (referenced in the EPICS .db) to the LabVIEW item "target" -->
       <!--TODO: set extint="true" for controls that need LabVIEW events triggering when they are written to -->
       
-      <param name="MAG:FIELD" type="float64">
+      <param name="MAG:TOTAL:FIELD" type="float64">
         <read method="GCV" target="b_field"/>
 		<set method="SCV" extint="true" target="b_field"/>
       </param>
-      <param name="THETA:FIELD" type="float64">
+      <param name="MAG:THETA:FIELD" type="float64">
         <read method="GCV" target="theta_field"/>
       </param>
-      <param name="PHI:FIELD" type="float64">
+      <param name="MAG:PHI:FIELD" type="float64">
         <read method="GCV" target="phi_field"/>
       </param>
-      <param name="X:FIELD" type="float64">
+      <param name="MAG:X:FIELD" type="float64">
         <read method="GCV" target="x_field_mag"/>
       </param>
-      <param name="X:CURR" type="float64">
+      <param name="MAG:X:CURR" type="float64">
         <read method="GCV" target="x_current_mag"/>
       </param>
-      <param name="Y:FIELD" type="float64">
+      <param name="MAG:Y:FIELD" type="float64">
         <read method="GCV" target="y_field_mag"/>
       </param>
-      <param name="Y:CURR" type="float64">
+      <param name="MAG:Y:CURR" type="float64">
         <read method="GCV" target="y_current_mag"/>
       </param>
-      <param name="Z:FIELD" type="float64">
+      <param name="MAG:Z:FIELD" type="float64">
         <read method="GCV" target="z_field_mag"/>
       </param>
-      <param name="Z:CURR" type="float64">
+      <param name="MAG:Z:CURR" type="float64">
         <read method="GCV" target="z_current_mag"/>
       </param>
       <param name="HX:TEMP" type="string">
@@ -52,24 +52,46 @@
       </param>
       <param name="HX:TEMP:SP" type="float64">
         <read method="GCV" target="target_temp"/>
-        <set method="SCV" extint="true" target="target_temp"/>
+        <set method="SCV" extint="true" target="target_temp" post_button="SET target" post_button_wait="true"/>
       </param>	  
       <param name="SAMPLE:TEMP:SP" type="float64">
         <read method="GCV" target="target_temp 2"/>
-        <set method="SCV" extint="true" target="target_temp 2"/>
+        <set method="SCV" extint="true" target="target_temp 2" post_button="SET target" post_button_wait="true"/>
       </param>
 
-      <param name="TARGETS:SET" type="boolean">
-        <items>
-          <item name="SET Targets" value="0"/>
-        </items>
-        <set method="SCV" extint="true" target="SET target"/>
-      </param>
+	  <!-- Use as post button instead
+	      <param name="TARGETS:SET" type="boolean">
+	        <items>
+	          <item name="SET Targets" value="0"/>
+	        </items>
+	        <set method="SCV" extint="true" target="SET target"/>
+	      </param>	
+	  -->
 
-	  <!-- Play -->
- 	  <param name="SAMPLE:TEMP:MODE" type="string">
+	  <!-- Manually added combo boxes -->
+ 	  <param name="HHEATER:X:MODE" type="string">
         <read method="GCV" target="Heater 1"/>
-		<set method="SCV" extint="true" target="Heater 1"/>
+		<set method="SCV" extint="true" target="Heater 1" post_button="SET target" post_button_wait="true"/>
+      </param>
+      <param name="SAMPLE:HEATER:MODE" type="string">
+        <read method="GCV" target="Heater 2"/>
+		<set method="SCV" extint="true" target="Heater 2" post_button="SET target" post_button_wait="true"/>
+      </param>
+      <param name="HX:TEMP:UNITS" type="string">
+        <read method="GCV" target="ChAunits"/>
+		<set method="SCV" extint="true" target="ChAunits"/>
+      </param>
+      <param name="SAMPLE:TEMP:UNITS" type="string">
+        <read method="GCV" target="ChBunits"/>
+		<set method="SCV" extint="true" target="ChBunits"/>
+      </param>
+      <param name="PSU:SP:UNITS" type="string">
+        <read method="GCV" target="target_units"/>
+		<set method="SCV" extint="true" target="target_units"/>
+      </param>
+      <param name="PSU:RAMP:SP:UNITS" type="string">
+        <read method="GCV" target="ramp_units"/>
+		<set method="SCV" extint="true" target="ramp_units"/>
       </param>
 
       <!--Ignoring LabVIEW control "Heater 1" as it has invalid type "Combo Box"-->
@@ -78,41 +100,41 @@
       <!--Ignoring LabVIEW control "ChBunits" as it has invalid type "Combo Box"-->
       <!--Ignoring LabVIEW control "target_units" as it has invalid type "Combo Box"-->
       <!--Ignoring LabVIEW control "ramp_units" as it has invalid type "Combo Box"-->
-      <param name="X:PSU" type="float64">
+      <param name="PSU:X" type="float64">
         <read method="GCV" target="x_psu_now"/>
       </param>
-      <param name="Y:PSU" type="float64">
+      <param name="PSU:Y" type="float64">
         <read method="GCV" target="y_psu_now"/>
       </param>
-      <param name="Z:PSU" type="float64">
+      <param name="PSU:Z" type="float64">
         <read method="GCV" target="z_psu_now"/>
       </param>
 	  <param name="PSU:UNITS" type="string">
         <read method="GCV" target="psu_units_now"/>
       </param>
 	  
-      <param name="X:PSU:SP" type="float64">
+      <param name="PSU:X:SP" type="float64">
         <read method="GCV" target="x_target_box"/>
         <set method="SCV" extint="true" target="x_target_box"/>
       </param>
-      <param name="Y:PSU:SP" type="float64">
+      <param name="PSU:Y:SP" type="float64">
         <read method="GCV" target="y_target_box"/>
         <set method="SCV" extint="true" target="y_target_box"/>
       </param>
-      <param name="Z:PSU:SP" type="float64">
+      <param name="PSU:Z:SP" type="float64">
         <read method="GCV" target="z_target_box"/>
         <set method="SCV" extint="true" target="z_target_box"/>
       </param>
 	  
-      <param name="X:PSU:RAMP:SP" type="float64">
+      <param name="PSU:X:RAMP:SP" type="float64">
         <read method="GCV" target="x_ramp_box"/>
         <set method="SCV" extint="true" target="x_ramp_box"/>
       </param>
-      <param name="Y:PSU:RAMP:SP" type="float64">
+      <param name="PSU:Y:RAMP:SP" type="float64">
         <read method="GCV" target="y_ramp_box"/>
         <set method="SCV" extint="true" target="y_ramp_box"/>
       </param>
-      <param name="Z:PSU:RAMP:SP" type="float64">
+      <param name="PSU:Z:RAMP:SP" type="float64">
         <read method="GCV" target="z_ramp_box"/>
         <set method="SCV" extint="true" target="z_ramp_box"/>
       </param>
@@ -139,7 +161,7 @@
         <set method="SCV" extint="true" target="pause_button"/>
       </param>
 	  
-      <param name="Z:HEATER:SP" type="boolean">
+      <param name="HEATER:Z:SP" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -147,9 +169,9 @@
           <item name="ON" value="3"/>
         </items>
         <read method="GCV" target="zpsh_slider"/>
-        <set method="SCV" extint="true" target="zpsh_slider"/>
+        <set method="SCV" extint="true" target="zpsh_slider" post_button="psh_change_button"  post_button_wait="true"/>
       </param>
-      <param name="Y:HEATER:SP" type="boolean">
+      <param name="HEATER:Y:SP" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -157,9 +179,9 @@
           <item name="ON" value="3"/>
         </items>
         <read method="GCV" target="ypsh_slider"/>
-        <set method="SCV" extint="true" target="ypsh_slider"/>
+        <set method="SCV" extint="true" target="ypsh_slider" post_button="psh_change_button"  post_button_wait="true"/>
       </param>
-      <param name="X:HEATER:SP" type="boolean">
+      <param name="HEATER:X:SP" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -167,21 +189,23 @@
           <item name="ON" value="3"/>
         </items>
         <read method="GCV" target="xpsh_slider"/>
-        <set method="SCV" extint="true" target="xpsh_slider"/>
+        <set method="SCV" extint="true" target="xpsh_slider" post_button="psh_change_button" post_button_wait="true"/>
       </param>	
 	  
-      <param name="HEATERS:SET" type="boolean">
-        <items>
-          <item name="SET PSH VALUES" value="0"/>
-        </items>
-        <set method="SCV" extint="true" target="psh_change_button"/>
-      </param>
+	  <!-- No longer needed, button is pressed when witches set
+	      <param name="HEATERS:SET" type="boolean">
+	        <items>
+	          <item name="SET PSH VALUES" value="0"/>
+	        </items>
+	        <set method="SCV" extint="true" target="psh_change_button"/>
+	      </param>
+      -->
 	  
       <param name="HEATER:STATUS" type="string">
         <read method="GCV" target="psh_label"/>
       </param>
 	  
-	  <param name="X:HEATER" type="boolean">
+	  <param name="HEATER:X" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -190,7 +214,7 @@
         </items>
         <read method="GCV" target="xpsh_led_on"/>
       </param>
-      <param name="X:HEATER:OFF" type="boolean">
+      <param name="HEATER:X:OFF" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -199,7 +223,7 @@
         </items>
         <read method="GCV" target="xpsh_led_off"/>
       </param>
-      <param name="Y:HEATER" type="boolean">
+      <param name="HEATER:Y" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -208,7 +232,7 @@
         </items>
         <read method="GCV" target="ypsh_led_on"/>
       </param>
-      <param name="Y:HEATER:OFF" type="boolean">
+      <param name="HEATER:Y:OFF" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -217,7 +241,7 @@
         </items>
         <read method="GCV" target="ypsh_led_off"/>
       </param>
-      <param name="Z:HEATER" type="boolean">
+      <param name="HEATER:Z" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -226,7 +250,7 @@
         </items>
         <read method="GCV" target="zpsh_led_on"/>
       </param>
-      <param name="Z:HEATER:OFF" type="boolean">
+      <param name="HEATER:Z:OFF" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -284,7 +308,12 @@
       <param name="B:HE_LEVEL" type="string">
         <read method="GCV" target="hlm_chB"/>
       </param>
-      <!--Ignoring LabVIEW control "hlm_mode" as it has invalid type "Combo Box"-->
+      
+      <!--Manually add control "hlm_mode" as it has invalid type "Combo Box"-->
+      <param name="HE_LEVEL:MODE" type="string">
+        <read method="GCV" target="hlm_mode"/>
+		<set method="SCV" extint="true" target="hlm_mode"/>
+      </param>
       
 
       <param name="STAT" type="boolean">

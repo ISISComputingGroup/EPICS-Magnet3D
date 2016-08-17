@@ -1,0 +1,53 @@
+
+# Read LabVIEW control/indicator "Heater 1" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(stringin, "$(P)$(BASE_NAME):RAW")
+{
+	field(DESC, "Raw read of $(desc_what)")
+    field(DTYP, "asynOctetRead")
+    field(INP,  "@asyn(lvfp,0,0)$(BASE_NAME)")
+	field(SCAN, ".1 second")
+}
+
+record(stringout, "$(P)$(BASE_NAME):RAW_PUSH")
+{
+	field(DESC, "Push raw value to a mbbi")
+    field(DOL, "$(P)$(BASE_NAME):RAW CP MS")
+	field(OMSL, "closed_loop")
+    field(OUT,  "$(P)$(BASE_NAME) MS PP")
+}
+
+record(mbbi, "$(P)$(BASE_NAME)")
+{
+	field(DESC, "$(desc_what)")
+	field(DTYP, "Soft Channel")
+	field(ZRST, "$(ZRST)")
+	field(ONST, "$(ONST)")
+	field(TWST, "$(TWST)")
+	field(THST, "$(THST)")
+	field(FRST, "$(FRST)")
+	field(FVST, "$(FVST)")
+	field(SXST, "$(SXST)")
+}
+
+# Write to LabVIEW control "Heater 1" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(stringout, "$(P)$(BASE_NAME):SP:RAW")
+{
+    field(DOL, "$(P)$(BASE_NAME):SP")
+	field(OMSL, "closed_loop")
+	field(DESC, "Raw string for $(desc_what)")
+    field(DTYP, "asynOctetWrite")
+    field(OUT,  "@asyn(lvfp,0,0)$(BASE_NAME)")
+}
+
+record(mbbi, "$(P)$(BASE_NAME):SP")
+{
+	field(DESC, "$(desc_what) set point")
+	field(ZRST, "$(ZRST)")
+	field(ONST, "$(ONST)")
+	field(TWST, "$(TWST)")
+	field(THST, "$(THST)")
+	field(FRST, "$(FRST)")
+	field(FVST, "$(FVST)")
+	field(SXST, "$(SXST)")
+	field(FLNK, "$(P)$(BASE_NAME):SP:RAW")
+}
