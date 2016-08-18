@@ -6,6 +6,9 @@ record(stringin, "$(P)$(BASE_NAME):RAW")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)$(BASE_NAME)")
 	field(SCAN, ".1 second")
+	field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:$(BASE_NAME):RAW")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(stringout, "$(P)$(BASE_NAME):RAW_PUSH")
@@ -39,6 +42,9 @@ record(stringout, "$(P)$(BASE_NAME):SP:RAW")
 	field(DESC, "Raw string for $(desc_what)")
     field(DTYP, "asynOctetWrite")
     field(OUT,  "@asyn(lvfp,0,0)$(BASE_NAME)")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:$(BASE_NAME):SP:RAW")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(mbbi, "$(P)$(BASE_NAME):SP")
@@ -54,3 +60,10 @@ record(mbbi, "$(P)$(BASE_NAME):SP")
 	field(FLNK, "$(P)$(BASE_NAME):SP:RAW")
 	info(archive, "VAL")
 }
+
+record(stringin, "$(P)SIM:$(BASE_NAME):SP:RAW")
+{
+	field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+} 
+alias("$(P)SIM:$(BASE_NAME):SP:RAW","$(P)SIM:$(BASE_NAME):RAW")

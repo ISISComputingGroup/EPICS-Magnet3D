@@ -161,7 +161,7 @@
         <set method="SCV" extint="true" target="pause_button"/>
       </param>
 	  
-      <param name="HEATER:Z:SP" type="boolean">
+      <param name="PSH:Z:SP" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -171,7 +171,7 @@
         <read method="GCV" target="zpsh_slider"/>
         <set method="SCV" extint="true" target="zpsh_slider" post_button="psh_change_button"  post_button_wait="true"/>
       </param>
-      <param name="HEATER:Y:SP" type="boolean">
+      <param name="PSH:Y:SP" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -181,7 +181,7 @@
         <read method="GCV" target="ypsh_slider"/>
         <set method="SCV" extint="true" target="ypsh_slider" post_button="psh_change_button"  post_button_wait="true"/>
       </param>
-      <param name="HEATER:X:SP" type="boolean">
+      <param name="PSH:X:SP" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -193,7 +193,7 @@
       </param>	
 	  
 	  <!-- No longer needed, button is pressed when witches set
-	      <param name="HEATERS:SET" type="boolean">
+	      <param name="PSHS:SET" type="boolean">
 	        <items>
 	          <item name="SET PSH VALUES" value="0"/>
 	        </items>
@@ -201,11 +201,11 @@
 	      </param>
       -->
 	  
-      <param name="HEATER:STATUS" type="string">
+      <param name="PSH:STATUS" type="string">
         <read method="GCV" target="psh_label"/>
       </param>
 	  
-	  <param name="HEATER:X" type="boolean">
+	  <param name="PSH:X" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -214,7 +214,7 @@
         </items>
         <read method="GCV" target="xpsh_led_on"/>
       </param>
-      <param name="HEATER:X:OFF" type="boolean">
+      <param name="PSH:X:OFF" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -223,7 +223,7 @@
         </items>
         <read method="GCV" target="xpsh_led_off"/>
       </param>
-      <param name="HEATER:Y" type="boolean">
+      <param name="PSH:Y" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -232,7 +232,7 @@
         </items>
         <read method="GCV" target="ypsh_led_on"/>
       </param>
-      <param name="HEATER:Y:OFF" type="boolean">
+      <param name="PSH:Y:OFF" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -241,7 +241,7 @@
         </items>
         <read method="GCV" target="ypsh_led_off"/>
       </param>
-      <param name="HEATER:Z" type="boolean">
+      <param name="PSH:Z" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>
@@ -250,7 +250,7 @@
         </items>
         <read method="GCV" target="zpsh_led_on"/>
       </param>
-      <param name="HEATER:Z:OFF" type="boolean">
+      <param name="PSH:Z:OFF" type="boolean">
         <items>
           <item name="OFF" value="0"/>
           <item name="ON" value="1"/>

@@ -10,6 +10,45 @@
 #
 #     lvDCOMConfigure("lvfp", "frontpanel", "/path/to/lvinput.xml")
 # 
+
+record(bo, "$(P)SIM")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+    field(ZNAM, "NO")
+    field(ONAM, "YES")
+    field(VAL, "$(RECSIM=0)")
+}
+
+record(bo, "$(P)DISABLE") 
+{
+    field(DESC, "Disable comms")
+    field(PINI, "YES")
+    field(VAL, "$(DISABLE=0)")
+    field(OMSL, "supervisory")
+    field(ZNAM, "COMMS ENABLED")
+    field(ONAM, "COMMS DISABLED")
+}
+
+
+# Read LabVIEW control/indicator "status_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(bi, "$(P)STAT")
+{
+	field(DESC, "Status of magnet control")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn(lvfp,0,0)STAT")
+    field(SCAN, ".1 second")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:STAT")
+    field(SDIS, "$(P)DISABLE")
+}
+
+## MAG
+######
       
 # Read LabVIEW control/indicator "b_field" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
 record(ai, "$(P)MAG:TOTAL:FIELD")
@@ -22,6 +61,9 @@ record(ai, "$(P)MAG:TOTAL:FIELD")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:MAG:TOTAL:FIELD")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "theta_field" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -35,6 +77,9 @@ record(ai, "$(P)MAG:THETA:FIELD")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:MAG:THETA:FIELD")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "phi_field" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -48,6 +93,9 @@ record(ai, "$(P)MAG:PHI:FIELD")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:MAG:PHI:FIELD")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "x_field_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -61,6 +109,9 @@ record(ai, "$(P)MAG:X:FIELD")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:MAG:X:FIELD")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "x_current_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -74,6 +125,9 @@ record(ai, "$(P)MAG:X:CURR")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:MAG:X:CURR")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "y_field_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -87,6 +141,9 @@ record(ai, "$(P)MAG:Y:FIELD")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:MAG:Y:FIELD")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "y_current_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -100,6 +157,9 @@ record(ai, "$(P)MAG:Y:CURR")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:MAG:Y:CURR")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
@@ -114,6 +174,9 @@ record(ai, "$(P)MAG:Z:FIELD")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:MAG:Z:FIELD")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "z_current_mag" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -127,7 +190,13 @@ record(ai, "$(P)MAG:Z:CURR")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:MAG:Z:CURR")
+    field(SDIS, "$(P)DISABLE")
 }
+
+## TEMP and HEATER
+##################
 
 # Read LabVIEW control/indicator "Ch. A" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
 record(stringin, "$(P)HX:TEMP")
@@ -138,6 +207,9 @@ record(stringin, "$(P)HX:TEMP")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:HX:TEMP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "Ch. B" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -149,6 +221,9 @@ record(stringin, "$(P)SAMPLE:TEMP")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:SAMPLE:TEMP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "Loop 1" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -162,6 +237,9 @@ record(ai, "$(P)LOOP1:HEATER")
     field(SCAN, ".1 second")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:LOOP1:HEATER")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "Loop 2" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -175,6 +253,9 @@ record(ai, "$(P)LOOP2:HEATER")
     field(SCAN, ".1 second")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:LOOP2:HEATER")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
@@ -189,6 +270,9 @@ record(ai, "$(P)HX:TEMP:SP:RBV")
     field(SCAN, ".1 second")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:HX:TEMP:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "target_temp" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -199,6 +283,9 @@ record(ao, "$(P)HX:TEMP:SP")
     field(OUT,  "@asyn(lvfp,0,0)HX:TEMP:SP")
     field(PREC, "3")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:HX:TEMP:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
@@ -213,6 +300,9 @@ record(ai, "$(P)SAMPLE:TEMP:SP:RBV")
     field(SCAN, ".1 second")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:SAMPLE:TEMP:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "target_temp 2" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -223,6 +313,9 @@ record(ao, "$(P)SAMPLE:TEMP:SP")
     field(OUT,  "@asyn(lvfp,0,0)SAMPLE:TEMP:SP")
     field(PREC, "3")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:SAMPLE:TEMP:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
@@ -237,6 +330,8 @@ record(ao, "$(P)SAMPLE:TEMP:SP")
 #    field(ONAM, "")
 #}
 
+## PSU
+######
 
 # Read LabVIEW control/indicator "x_psu_now" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
 record(ai, "$(P)PSU:X")
@@ -249,6 +344,9 @@ record(ai, "$(P)PSU:X")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:X")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
@@ -263,6 +361,9 @@ record(ai, "$(P)PSU:Y")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:Y")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "z_psu_now" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -276,6 +377,9 @@ record(ai, "$(P)PSU:Z")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:Z")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
@@ -292,6 +396,9 @@ record(stringin, "$(P)PSU:UNITS")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:UNITS")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "x_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -305,6 +412,9 @@ record(ai, "$(P)PSU:X:SP:RBV")
     field(SCAN, ".1 second")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:X:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "x_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -316,6 +426,9 @@ record(ao, "$(P)PSU:X:SP")
     field(OUT,  "@asyn(lvfp,0,0)PSU:X:SP")
     field(PREC, "3")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:X:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
@@ -330,6 +443,9 @@ record(ai, "$(P)PSU:Y:SP:RBV")
     field(SCAN, ".1 second")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:Y:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "y_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -341,6 +457,9 @@ record(ao, "$(P)PSU:Y:SP")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Y:SP")
     field(PREC, "3")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:Y:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
@@ -355,6 +474,9 @@ record(ai, "$(P)PSU:Z:SP:RBV")
     field(SCAN, ".1 second")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:Z:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "z_target_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -366,6 +488,9 @@ record(ao, "$(P)PSU:Z:SP")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Z:SP")
     field(PREC, "3")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:Z:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "x_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -379,6 +504,9 @@ record(ai, "$(P)PSU:X:RAMP:SP:RBV")
     field(SCAN, ".1 second")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:X:RAMP:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "x_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -390,6 +518,9 @@ record(ao, "$(P)PSU:X:RAMP:SP")
     field(OUT,  "@asyn(lvfp,0,0)PSU:X:RAMP:SP")
     field(PREC, "3")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:X:RAMP:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
@@ -404,6 +535,9 @@ record(ai, "$(P)PSU:Y:RAMP:SP:RBV")
     field(SCAN, ".1 second")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:Y:RAMP:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "y_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -415,6 +549,9 @@ record(ao, "$(P)PSU:Y:RAMP:SP")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Y:RAMP:SP")
     field(PREC, "3")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:Y:RAMP:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
@@ -429,6 +566,9 @@ record(ai, "$(P)PSU:Z:RAMP:SP:RBV")
     field(SCAN, ".1 second")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:Z:RAMP:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "z_ramp_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -440,6 +580,9 @@ record(ao, "$(P)PSU:Z:RAMP:SP")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Z:RAMP:SP")
     field(PREC, "3")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:Z:RAMP:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "zero_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -450,6 +593,9 @@ record(bo, "$(P)PSU:ZERO:SP")
     field(OUT,  "@asyn(lvfp,0,0)PSU:ZERO:SP")
     field(ZNAM, "READY")
     field(ONAM, "SETTING TO ZERO")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:ZERO:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "ramp_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -463,6 +609,9 @@ record(bi, "$(P)PSU:RAMP:SP:RBV")
     field(ONAM, "ON")	
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:RAMP:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "ramp_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -473,6 +622,9 @@ record(bo, "$(P)PSU:RAMP:SP")
     field(OUT,  "@asyn(lvfp,0,0)PSU:RAMP:SP")
     field(ZNAM, "OFF")
     field(ONAM, "ON")	
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:RAMP:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "pause_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -486,6 +638,9 @@ record(bi, "$(P)PSU:PAUSE:SP:RBV")
     field(ONAM, "PAUSED")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:PAUSE:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "pause_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -496,40 +651,54 @@ record(bo, "$(P)PSU:PAUSE:SP")
     field(OUT,  "@asyn(lvfp,0,0)PSU:PAUSE:SP")
     field(ZNAM, "UNPAUSE")
     field(ONAM, "PAUSE")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:PAUSE:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
+# PSH: Persistent Switch Heaters
+################################
 
 # Write to LabVIEW control "zpsh_slider" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)HEATER:Z:SP")
+record(bo, "$(P)PSH:Z:SP")
 {
 	field(DESC, "Z persistent switch heater")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)HEATER:Z:SP")
+    field(OUT,  "@asyn(lvfp,0,0)PSH:Z:SP")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSH:Z:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "ypsh_slider" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)HEATER:Y:SP")
+record(bo, "$(P)PSH:Y:SP")
 {
 	field(DESC, "Y persistent switch heater")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)HEATER:Y:SP")
+    field(OUT,  "@asyn(lvfp,0,0)PSH:Y:SP")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSH:Y:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "xpsh_slider" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)HEATER:X:SP")
+record(bo, "$(P)PSH:X:SP")
 {
 	field(DESC, "X persistent switch heater")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn(lvfp,0,0)HEATER:X:SP")
+    field(OUT,  "@asyn(lvfp,0,0)PSH:X:SP")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSH:X:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
@@ -538,60 +707,71 @@ record(bo, "$(P)HEATER:X:SP")
 ## longer than this choose the character waveform records and adjust NELM if necessary
 
 # Read LabVIEW control/indicator "psh_label" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(stringin, "$(P)HEATER:STATUS")
+record(stringin, "$(P)PSH:STATUS")
 {
 	field(DESC, "Persistent switch heaters status")
     field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn(lvfp,0,0)HEATER:STATUS")
+    field(INP,  "@asyn(lvfp,0,0)PSH:STATUS")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSH:STATUS")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
 # Read LabVIEW control/indicator "xpsh_led_on" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)HEATER:X:SP:RBV")
+record(bi, "$(P)PSH:X:SP:RBV")
 {
 	field(DESC, "X persistent switch heaters")
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn(lvfp,0,0)HEATER:X")
+    field(INP,  "@asyn(lvfp,0,0)PSH:X")
     field(SCAN, ".1 second")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSH:X:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 
 # Read LabVIEW control/indicator "ypsh_led_on" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)HEATER:Y:SP:RBV")
+record(bi, "$(P)PSH:Y:SP:RBV")
 {
 	field(DESC, "Y persistent switch heaters")
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn(lvfp,0,0)HEATER:Y")
+    field(INP,  "@asyn(lvfp,0,0)PSH:Y")
     field(SCAN, ".1 second")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSH:Y:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "zpsh_led_on" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)HEATER:Z:SP:RBV")
+record(bi, "$(P)PSH:Z:SP:RBV")
 {
 	field(DESC, "Z persistent switch heaters")
     field(DTYP, "asynInt32")
-    field(INP,  "@asyn(lvfp,0,0)HEATER:Z")
+    field(INP,  "@asyn(lvfp,0,0)PSH:Z")
     field(SCAN, ".1 second")
     field(ZNAM, "OFF")
     field(ONAM, "ON")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSH:Z:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
-## Creating both stringout/stringin and waveform records for "hlm_chA" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-## EPICS strings are restricted to 40 characters in length, if your strings are
-## longer than this choose the character waveform records and adjust NELM if necessary
+# HELIUM LEVELS and control
+###########################
 
 # Read LabVIEW control/indicator "hlm_chA" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
 record(stringin, "$(P)A:HE_LEVEL")
@@ -602,6 +782,9 @@ record(stringin, "$(P)A:HE_LEVEL")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:A:HE_LEVEL")
+    field(SDIS, "$(P)DISABLE")
 }
 
 ## Creating both stringout/stringin and waveform records for "hlm_chB" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -617,20 +800,9 @@ record(stringin, "$(P)B:HE_LEVEL")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
-}
-
-
-# Read LabVIEW control/indicator "status_box" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)STAT")
-{
-	field(DESC, "Status of magnet control")
-    field(DTYP, "asynInt32")
-    field(INP,  "@asyn(lvfp,0,0)STAT")
-    field(SCAN, ".1 second")
-    field(ZNAM, "OFF")
-    field(ONAM, "ON")
-	info(INTEREST, "MEDIUM")
-	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:B:HE_LEVEL")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "ANV position" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -644,6 +816,9 @@ record(ai, "$(P)ANV:POS:SP:RBV")
     field(SCAN, ".1 second")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:ANV:POS:SP:RBV")
+    field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "ANV position" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -654,5 +829,288 @@ record(ao, "$(P)ANV:POS:SP")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)ANV:POS:SP")
     field(PREC, "3")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:ANV:POS:SP")
+    field(SDIS, "$(P)DISABLE")
+}
+
+
+### SIMULATION RECORDS ###
+
+
+record(bi, "$(P)SIM:STAT")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+
+## MAG SIM
+##########
+
+record(ai, "$(P)SIM:MAG:Z:FIELD")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+record(ai, "$(P)SIM:MAG:Y:FIELD")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+record(ai, "$(P)SIM:MAG:X:FIELD")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+record(calc, "$(P)SIM:MAG:TOTAL:FIELD")
+{
+	field(INPA, "$(P)SIM:MAG:X:FIELD")
+	field(INPB, "$(P)SIM:MAG:Y:FIELD")
+	field(INPC, "$(P)SIM:MAG:Z:FIELD")
+    field(SCAN, "Passive")
+	field(CALC, "SQR(A*A+B*B+C*C)")
+}
+
+record(calc, "$(P)SIM:MAG:PHI:FIELD")
+{
+    field(SCAN, "Passive")
+	field(INPA, "$(P)SIM:MAG:Z:FIELD")
+	field(INPB, "$(P)SIM:MAG:TOTAL:FIELD")
+    field(SCAN, "Passive")
+	field(CALC, "ACOS(A/B)")
+
+}
+
+record(calc, "$(P)SIM:MAG:THETA:FIELD")
+{
+	field(INPA, "$(P)SIM:MAG:X:FIELD")
+	field(INPB, "$(P)SIM:MAG:Y:FIELD")
+    field(SCAN, "Passive")
+	field(CALC, "ATAN(B/A)")
+}
+
+record(ai, "$(P)SIM:MAG:FIELDTOCURRENT") {
+	field(DESC, "Factor for simulted current to field")
+	field(VAL, 100)
+}
+
+record(calc, "$(P)SIM:MAG:X:CURR")
+{
+    field(SCAN, "Passive")
+	field(INPA, "$(P)SIM:MAG:X:FIELD")
+	field(INPB, "$(P)SIM:MAG:FIELDTOCURRENT")
+    field(CALC, "A * B")
+}
+
+record(calc, "$(P)SIM:MAG:Y:CURR")
+{
+    field(SCAN, "Passive")
+	field(INPA, "$(P)SIM:MAG:Y:FIELD")
+	field(INPB, "$(P)SIM:MAG:FIELDTOCURRENT")
+    field(CALC, "A * B")
+}
+
+record(calc, "$(P)SIM:MAG:Z:CURR")
+{
+    field(SCAN, "Passive")
+	field(INPA, "$(P)SIM:MAG:Z:FIELD")
+	field(INPB, "$(P)SIM:MAG:FIELDTOCURRENT")
+    field(CALC, "A * B")
+}
+
+
+## PSU SIM
+##########
+
+record(ao, "$(P)SIM:PSU:X:RAMP:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:PSU:X:RAMP:SP","$(P)SIM:PSU:X:RAMP:SP:RBV")
+
+record(ao, "$(P)SIM:PSU:Y:RAMP:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:PSU:Y:RAMP:SP","$(P)SIM:PSU:Y:RAMP:SP:RBV")
+
+
+
+record(ao, "$(P)SIM:PSU:Z:RAMP:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:PSU:Z:RAMP:SP","$(P)SIM:PSU:Z:RAMP:SP:RBV")
+
+
+
+record(ai, "$(P)SIM:PSU:X")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:PSU:X","$(P)SIM:PSU:X:SP")
+alias("$(P)SIM:PSU:X","$(P)SIM:PSU:X:SP:RBV")
+
+record(ai, "$(P)SIM:PSU:Y")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:PSU:Y","$(P)SIM:PSU:Y:SP")
+alias("$(P)SIM:PSU:Y","$(P)SIM:PSU:Y:SP:RBV")
+
+record(ai, "$(P)SIM:PSU:Z")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:PSU:Z","$(P)SIM:PSU:Z:SP")
+alias("$(P)SIM:PSU:Z","$(P)SIM:PSU:Z:SP:RBV")
+
+
+record(bo, "$(P)SIM:PSU:PAUSE:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+	field(ZNAM, "UNPAUSED")
+    field(ONAM, "PAUSED")
+}
+alias("$(P)SIM:PSU:PAUSE:SP","$(P)SIM:PSU:PAUSE:SP:RBV")
+
+alias("$(P)SIM:PSU:SP:UNITS:SP:RAW", "$(P)SIM:PSU:UNITS")
+
+
+record(bo, "$(P)SIM:PSU:ZERO:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+record(bo, "$(P)SIM:PSU:RAMP:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:PSU:RAMP:SP","$(P)SIM:PSU:RAMP:SP:RBV")
+
+# SIM:PSH: Persistent Switch Heaters
+################################
+
+record(stringin, "$(P)SIM:PSH:STATUS")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+record(bo, "$(P)SIM:PSH:X:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:PSH:X:SP","$(P)SIM:PSH:X:SP:RBV")
+
+record(bo, "$(P)SIM:PSH:Y:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:PSH:Y:SP","$(P)SIM:PSH:Y:SP:RBV")
+
+record(bo, "$(P)SIM:PSH:Z:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:PSH:Z:SP","$(P)SIM:PSH:Z:SP:RBV")
+
+
+
+
+## TEMP and HEATER
+##################
+
+
+record(stringin, "$(P)SIM:HX:TEMP")
+{
+	field(INP, "$(P)SIM:HX:TEMP:SP CA")
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+record(ao, "$(P)SIM:HX:TEMP:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:HX:TEMP:SP","$(P)SIM:HX:TEMP:SP:RBV")
+
+record(stringin, "$(P)SIM:SAMPLE:TEMP")
+{
+	field(INP, "$(P)SIM:SAMPLE:TEMP:SP CA")
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+record(ao, "$(P)SIM:SAMPLE:TEMP:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:SAMPLE:TEMP:SP","$(P)SIM:SAMPLE:TEMP:SP:RBV")
+
+
+record(ai, "$(P)SIM:LOOP1:HEATER")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+record(ai, "$(P)SIM:LOOP2:HEATER")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+# HELIUM LEVELS and control
+###########################
+
+record(ao, "$(P)SIM:ANV:POS:SP")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+alias("$(P)SIM:ANV:POS:SP","$(P)SIM:ANV:POS:SP:RBV")
+
+record(stringin, "$(P)SIM:A:HE_LEVEL")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+
+record(stringin, "$(P)SIM:B:HE_LEVEL")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
 }
 
