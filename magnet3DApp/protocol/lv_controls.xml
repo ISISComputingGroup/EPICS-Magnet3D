@@ -69,7 +69,7 @@
 	  -->
 
 	  <!-- Manually added combo boxes -->
- 	  <param name="HHEATER:X:MODE" type="string">
+ 	  <param name="HX:HEATER:MODE" type="string">
         <read method="GCV" target="Heater 1"/>
 		<set method="SCV" extint="true" target="Heater 1" post_button="SET target" post_button_wait="true"/>
       </param>
