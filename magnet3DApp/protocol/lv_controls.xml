@@ -142,6 +142,7 @@
         <items>
           <item name="ZERO" value="0"/>
         </items>
+        <read method="GCV" target="zero_button"/>
         <set method="SCV" extint="true" target="zero_button"/>
       </param>
 	  

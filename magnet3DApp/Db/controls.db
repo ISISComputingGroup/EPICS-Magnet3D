@@ -610,8 +610,24 @@ record(ao, "$(P)PSU:Z:RAMP:SP")
     field(SDIS, "$(P)DISABLE")
 }
 
+# Write to LabVIEW control "ramp_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(bi, "$(P)PSU:ZERO:CMD:RBV")
+{
+	field(DESC, "ZERO PSU Settings readback")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn(lvfp,0,0)PSU:ZERO:SP")
+    field(SCAN, ".1 second")	
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")	
+	info(INTEREST, "MEDIUM")
+	info(archive, "VAL")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:PSU:ZERO:CMD:RBV")
+    field(SDIS, "$(P)DISABLE")
+}
+
 # Write to LabVIEW control "zero_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)PSU:ZERO:SP")
+record(bo, "$(P)PSU:ZERO:CMD")
 {
 	field(DESC, "ZERO PSU Settings")
     field(DTYP, "asynInt32")
@@ -619,12 +635,12 @@ record(bo, "$(P)PSU:ZERO:SP")
     field(ZNAM, "READY")
     field(ONAM, "SETTING TO ZERO")
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:PSU:ZERO:SP PP")
+    field(SIOL, "$(P)SIM:PSU:ZERO:CMD PP")
     field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "ramp_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)PSU:RAMP:SP:RBV")
+record(bi, "$(P)PSU:RAMP:CMD:RBV")
 {
 	field(DESC, "Set power supplies ramping readback")
     field(DTYP, "asynInt32")
@@ -635,12 +651,12 @@ record(bi, "$(P)PSU:RAMP:SP:RBV")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:PSU:RAMP:SP:RBV")
+    field(SIOL, "$(P)SIM:PSU:RAMP:CMD:RBV")
     field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "ramp_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)PSU:RAMP:SP")
+record(bo, "$(P)PSU:RAMP:CMD")
 {
 	field(DESC, "Set power supplies ramping")
     field(DTYP, "asynInt32")
@@ -648,12 +664,12 @@ record(bo, "$(P)PSU:RAMP:SP")
     field(ZNAM, "OFF")
     field(ONAM, "ON")	
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:PSU:RAMP:SP PP")
+    field(SIOL, "$(P)SIM:PSU:RAMP:CMD PP")
     field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "pause_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)PSU:PAUSE:SP:RBV")
+record(bi, "$(P)PSU:PAUSE:CMD:RBV")
 {
 	field(DESC, "Ramp is paused")
     field(DTYP, "asynInt32")
@@ -664,12 +680,12 @@ record(bi, "$(P)PSU:PAUSE:SP:RBV")
 	info(INTEREST, "MEDIUM")
 	info(archive, "VAL")
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:PSU:PAUSE:SP:RBV")
+    field(SIOL, "$(P)SIM:PSU:PAUSE:CMD:RBV")
     field(SDIS, "$(P)DISABLE")
 }
 
 # Write to LabVIEW control "pause_button" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bo, "$(P)PSU:PAUSE:SP")
+record(bo, "$(P)PSU:PAUSE:CMD")
 {
 	field(DESC, "Pause PSU ramping")
     field(DTYP, "asynInt32")
@@ -677,7 +693,7 @@ record(bo, "$(P)PSU:PAUSE:SP")
     field(ZNAM, "UNPAUSE")
     field(ONAM, "PAUSE")
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:PSU:PAUSE:SP PP")
+    field(SIOL, "$(P)SIM:PSU:PAUSE:CMD PP")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -747,7 +763,7 @@ record(stringin, "$(P)PSH:STAT")
 
 
 # Read LabVIEW control/indicator "xpsh_led_on" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)PSH:X:SP:RBV")
+record(bi, "$(P)PSH:X")
 {
 	field(DESC, "X persistent switch heaters")
     field(DTYP, "asynInt32")
@@ -758,13 +774,13 @@ record(bi, "$(P)PSH:X:SP:RBV")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:PSH:X:SP:RBV")
+    field(SIOL, "$(P)SIM:PSH:X")
     field(SDIS, "$(P)DISABLE")
 }
 
 
 # Read LabVIEW control/indicator "ypsh_led_on" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)PSH:Y:SP:RBV")
+record(bi, "$(P)PSH:Y")
 {
 	field(DESC, "Y persistent switch heaters")
     field(DTYP, "asynInt32")
@@ -775,12 +791,12 @@ record(bi, "$(P)PSH:Y:SP:RBV")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:PSH:Y:SP:RBV")
+    field(SIOL, "$(P)SIM:PSH:Y")
     field(SDIS, "$(P)DISABLE")
 }
 
 # Read LabVIEW control/indicator "zpsh_led_on" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(bi, "$(P)PSH:Z:SP:RBV")
+record(bi, "$(P)PSH:Z")
 {
 	field(DESC, "Z persistent switch heaters")
     field(DTYP, "asynInt32")
@@ -791,7 +807,7 @@ record(bi, "$(P)PSH:Z:SP:RBV")
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:PSH:Z:SP:RBV")
+    field(SIOL, "$(P)SIM:PSH:Z")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -1008,32 +1024,32 @@ alias("$(P)SIM:PSU:Z","$(P)SIM:PSU:Z:SP")
 alias("$(P)SIM:PSU:Z","$(P)SIM:PSU:Z:SP:RBV")
 
 
-record(bo, "$(P)SIM:PSU:PAUSE:SP")
+record(bo, "$(P)SIM:PSU:PAUSE:CMD")
 {
     field(SCAN, "Passive")
     field(DTYP, "Soft Channel")
 	field(ZNAM, "UNPAUSED")
     field(ONAM, "PAUSED")
 }
-alias("$(P)SIM:PSU:PAUSE:SP","$(P)SIM:PSU:PAUSE:SP:RBV")
+alias("$(P)SIM:PSU:PAUSE:CMD","$(P)SIM:PSU:PAUSE:CMD:RBV")
 
 alias("$(P)SIM:PSU:SP:UNITS:SP:RAW", "$(P)SIM:PSU:UNITS")
 
 
-record(bo, "$(P)SIM:PSU:ZERO:SP")
+record(bo, "$(P)SIM:PSU:ZERO:CMD")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+}
+alias("$(P)SIM:PSU:ZERO:CMD","$(P)SIM:PSU:ZERO:CMD:RBV")
+
+record(bo, "$(P)SIM:PSU:RAMP:CMD")
 {
     field(SCAN, "Passive")
     field(DTYP, "Soft Channel")
 }
 
-
-record(bo, "$(P)SIM:PSU:RAMP:SP")
-{
-    field(SCAN, "Passive")
-    field(DTYP, "Soft Channel")
-}
-
-alias("$(P)SIM:PSU:RAMP:SP","$(P)SIM:PSU:RAMP:SP:RBV")
+alias("$(P)SIM:PSU:RAMP:CMD","$(P)SIM:PSU:RAMP:CMD:RBV")
 
 # SIM:PSH: Persistent Switch Heaters
 ################################
@@ -1052,7 +1068,7 @@ record(bo, "$(P)SIM:PSH:X:SP")
     field(ONAM, "ON")
 }
 
-alias("$(P)SIM:PSH:X:SP","$(P)SIM:PSH:X:SP:RBV")
+alias("$(P)SIM:PSH:X:SP","$(P)SIM:PSH:X")
 
 record(bo, "$(P)SIM:PSH:Y:SP")
 {
@@ -1062,7 +1078,7 @@ record(bo, "$(P)SIM:PSH:Y:SP")
     field(ONAM, "ON")
 }
 
-alias("$(P)SIM:PSH:Y:SP","$(P)SIM:PSH:Y:SP:RBV")
+alias("$(P)SIM:PSH:Y:SP","$(P)SIM:PSH:Y")
 
 record(bo, "$(P)SIM:PSH:Z:SP")
 {
@@ -1072,7 +1088,7 @@ record(bo, "$(P)SIM:PSH:Z:SP")
     field(ONAM, "ON")
 }
 
-alias("$(P)SIM:PSH:Z:SP","$(P)SIM:PSH:Z:SP:RBV")
+alias("$(P)SIM:PSH:Z:SP","$(P)SIM:PSH:Z")
 
 
 
@@ -1152,7 +1168,7 @@ record(stringin, "$(P)SIM:B:HE_LEVEL")
 record(calcout, "$(P)SIM:MAG:X:FIELD:SET")
 {
     field(SCAN, "Passive")
-	field(INPA, "$(P)SIM:PSH:X:SP:RBV CP")
+	field(INPA, "$(P)SIM:PSH:X CP")
 	field(INPB, "$(P)SIM:PSU:X CP")
 	field(INPC, "$(P)PSU:SP:UNITS:SP CP")
 
@@ -1167,7 +1183,7 @@ record(calcout, "$(P)SIM:MAG:X:FIELD:SET")
 record(calcout, "$(P)SIM:MAG:Y:FIELD:SET")
 {
     field(SCAN, "Passive")
-	field(INPA, "$(P)SIM:PSH:Y:SP:RBV CP")
+	field(INPA, "$(P)SIM:PSH:Y CP")
 	field(INPB, "$(P)SIM:PSU:Y CP")
 	field(INPC, "$(P)PSU:SP:UNITS:SP CP")
 
@@ -1182,7 +1198,7 @@ record(calcout, "$(P)SIM:MAG:Y:FIELD:SET")
 record(calcout, "$(P)SIM:MAG:Z:FIELD:SET")
 {
     field(SCAN, "Passive")
-	field(INPA, "$(P)SIM:PSH:Z:SP:RBV CP")
+	field(INPA, "$(P)SIM:PSH:Z CP")
 	field(INPB, "$(P)SIM:PSU:Z CP")
 	field(INPC, "$(P)PSU:SP:UNITS:SP CP")
 
