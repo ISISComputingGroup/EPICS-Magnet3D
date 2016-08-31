@@ -1,5 +1,5 @@
 
-# Read LabVIEW control/indicator "Heater 1" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+# Read LabVIEW control/indicator on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
 record(stringin, "$(P)$(BASE_NAME):RAW")
 {
 	field(DESC, "Raw read of $(desc_what)")
@@ -16,10 +16,10 @@ record(stringout, "$(P)$(BASE_NAME):RAW_PUSH")
 	field(DESC, "Push raw value to a mbbi")
     field(DOL, "$(P)$(BASE_NAME):RAW CP MS")
 	field(OMSL, "closed_loop")
-    field(OUT,  "$(P)$(BASE_NAME) MS PP")
+    field(OUT,  "$(P)$(BASE_NAME):SEL:RBV MS PP")
 }
 
-record(mbbi, "$(P)$(BASE_NAME)")
+record(mbbi, "$(P)$(BASE_NAME):SEL:RBV")
 {
 	field(DESC, "$(desc_what)")
 	field(DTYP, "Soft Channel")
@@ -34,20 +34,20 @@ record(mbbi, "$(P)$(BASE_NAME)")
 	info(archive, "VAL")
 }
 
-# Write to LabVIEW control "Heater 1" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(stringout, "$(P)$(BASE_NAME):SP:RAW")
+# Write to LabVIEW control on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(stringout, "$(P)$(BASE_NAME):SEL:RAW")
 {
-    field(DOL, "$(P)$(BASE_NAME):SP")
+    field(DOL, "$(P)$(BASE_NAME):SEL")
 	field(OMSL, "closed_loop")
 	field(DESC, "Raw string for $(desc_what)")
     field(DTYP, "asynOctetWrite")
     field(OUT,  "@asyn(lvfp,0,0)$(BASE_NAME)")
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:$(BASE_NAME):SP:RAW")
+    field(SIOL, "$(P)SIM:$(BASE_NAME):SEL:RAW")
     field(SDIS, "$(P)DISABLE")
 }
 
-record(mbbi, "$(P)$(BASE_NAME):SP")
+record(mbbi, "$(P)$(BASE_NAME):SEL")
 {
 	field(DESC, "$(desc_what) set point")
 	field(ZRST, "$(ZRST)")
@@ -57,13 +57,13 @@ record(mbbi, "$(P)$(BASE_NAME):SP")
 	field(FRST, "$(FRST)")
 	field(FVST, "$(FVST)")
 	field(SXST, "$(SXST)")
-	field(FLNK, "$(P)$(BASE_NAME):SP:RAW")
+	field(FLNK, "$(P)$(BASE_NAME):SEL:RAW")
 	info(archive, "VAL")
 }
 
-record(stringin, "$(P)SIM:$(BASE_NAME):SP:RAW")
+record(stringin, "$(P)SIM:$(BASE_NAME):SEL:RAW")
 {
 	field(SCAN, "Passive")
     field(DTYP, "Soft Channel")
 } 
-alias("$(P)SIM:$(BASE_NAME):SP:RAW","$(P)SIM:$(BASE_NAME):RAW")
+alias("$(P)SIM:$(BASE_NAME):SEL:RAW","$(P)SIM:$(BASE_NAME):RAW")

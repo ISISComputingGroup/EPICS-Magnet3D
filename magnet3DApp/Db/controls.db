@@ -817,7 +817,7 @@ record(bi, "$(P)PSH:Z")
 # Read LabVIEW control/indicator "hlm_chA" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
 record(stringin, "$(P)A:HE_LEVEL")
 {
-	field(DESC, "Helimum level channel A")
+	field(DESC, "Helium level channel A")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)A:HE_LEVEL")
     field(SCAN, ".1 second")
@@ -825,24 +825,6 @@ record(stringin, "$(P)A:HE_LEVEL")
 	info(archive, "VAL")
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)SIM:A:HE_LEVEL")
-    field(SDIS, "$(P)DISABLE")
-}
-
-## Creating both stringout/stringin and waveform records for "hlm_chB" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-## EPICS strings are restricted to 40 characters in length, if your strings are
-## longer than this choose the character waveform records and adjust NELM if necessary
-
-# Read LabVIEW control/indicator "hlm_chB" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(stringin, "$(P)B:HE_LEVEL")
-{
-	field(DESC, "Helimum level channel B")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn(lvfp,0,0)B:HE_LEVEL")
-    field(SCAN, ".1 second")
-	info(INTEREST, "HIGH")
-	info(archive, "VAL")
-    field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:B:HE_LEVEL")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -1033,13 +1015,15 @@ record(bo, "$(P)SIM:PSU:PAUSE:CMD")
 }
 alias("$(P)SIM:PSU:PAUSE:CMD","$(P)SIM:PSU:PAUSE:CMD:RBV")
 
-alias("$(P)SIM:PSU:SP:UNITS:SP:RAW", "$(P)SIM:PSU:UNITS")
+alias("$(P)SIM:PSU:SP:UNITS:SEL:RAW", "$(P)SIM:PSU:UNITS")
 
 
 record(bo, "$(P)SIM:PSU:ZERO:CMD")
 {
     field(SCAN, "Passive")
     field(DTYP, "Soft Channel")
+	field(ZNAM, "OFF")
+    field(ONAM, "ON")
 }
 alias("$(P)SIM:PSU:ZERO:CMD","$(P)SIM:PSU:ZERO:CMD:RBV")
 
@@ -1047,6 +1031,8 @@ record(bo, "$(P)SIM:PSU:RAMP:CMD")
 {
     field(SCAN, "Passive")
     field(DTYP, "Soft Channel")
+	field(ZNAM, "OFF")
+    field(ONAM, "ON")
 }
 
 alias("$(P)SIM:PSU:RAMP:CMD","$(P)SIM:PSU:RAMP:CMD:RBV")
@@ -1157,12 +1143,6 @@ record(stringin, "$(P)SIM:A:HE_LEVEL")
     field(DTYP, "Soft Channel")
 }
 
-record(stringin, "$(P)SIM:B:HE_LEVEL")
-{
-    field(SCAN, "Passive")
-    field(DTYP, "Soft Channel")
-}
-
 # Sim set magnet
 
 record(calcout, "$(P)SIM:MAG:X:FIELD:SET")
@@ -1170,7 +1150,7 @@ record(calcout, "$(P)SIM:MAG:X:FIELD:SET")
     field(SCAN, "Passive")
 	field(INPA, "$(P)SIM:PSH:X CP")
 	field(INPB, "$(P)SIM:PSU:X CP")
-	field(INPC, "$(P)PSU:SP:UNITS:SP CP")
+	field(INPC, "$(P)PSU:SP:UNITS:SEL CP")
 
 	field(INPD, "$(P)SIM:MAG:FIELDTOCURRENT CP")
 	field(INPE, "$(P)SIM:MAG:X:FIELD CP")
@@ -1185,7 +1165,7 @@ record(calcout, "$(P)SIM:MAG:Y:FIELD:SET")
     field(SCAN, "Passive")
 	field(INPA, "$(P)SIM:PSH:Y CP")
 	field(INPB, "$(P)SIM:PSU:Y CP")
-	field(INPC, "$(P)PSU:SP:UNITS:SP CP")
+	field(INPC, "$(P)PSU:SP:UNITS:SEL CP")
 
 	field(INPD, "$(P)SIM:MAG:FIELDTOCURRENT CP")
 	field(INPE, "$(P)SIM:MAG:Y:FIELD CP")
@@ -1200,7 +1180,7 @@ record(calcout, "$(P)SIM:MAG:Z:FIELD:SET")
     field(SCAN, "Passive")
 	field(INPA, "$(P)SIM:PSH:Z CP")
 	field(INPB, "$(P)SIM:PSU:Z CP")
-	field(INPC, "$(P)PSU:SP:UNITS:SP CP")
+	field(INPC, "$(P)PSU:SP:UNITS:SEL CP")
 
 	field(INPD, "$(P)SIM:MAG:FIELDTOCURRENT CP")
 	field(INPE, "$(P)SIM:MAG:Z:FIELD CP")
