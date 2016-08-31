@@ -200,23 +200,34 @@ record(ai, "$(P)MAG:Z:CURR")
 ##################
 
 # Read LabVIEW control/indicator "Ch. A" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(stringin, "$(P)HX:TEMP")
+record(stringin, "$(P)HX:TEMP_RAW")
 {
-	field(DESC, "HZ temperature")
+	field(DESC, "HX temperature as a string")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)HX:TEMP")
     field(SCAN, ".1 second")
-	info(INTEREST, "HIGH")
+	info(INTEREST, "LOW")
 	info(archive, "VAL")
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)SIM:HX:TEMP")
     field(SDIS, "$(P)DISABLE")
 }
 
-# Read LabVIEW control/indicator "Ch. B" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
-record(stringin, "$(P)SAMPLE:TEMP")
+record(scalcout, "$(P)HX:TEMP")
 {
-	field(DESC, "Sample temperature")
+	field(DESC, "HX temperature")
+    field(INAA,  "$(P)HX:TEMP_RAW CP MS")
+	field(CALC,  "SSCANF(AA, \"%lf\")")
+	field(EGU, "")  # units set by unit pusher
+	field(PREC, "3")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
+}
+
+# Read LabVIEW control/indicator "Ch. B" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
+record(stringin, "$(P)SAMPLE:TEMP_RAW")
+{
+	field(DESC, "Sample temperature as a string")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn(lvfp,0,0)SAMPLE:TEMP")
     field(SCAN, ".1 second")
@@ -225,6 +236,17 @@ record(stringin, "$(P)SAMPLE:TEMP")
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)SIM:SAMPLE:TEMP")
     field(SDIS, "$(P)DISABLE")
+}
+
+record(scalcout, "$(P)SAMPLE:TEMP")
+{
+	field(DESC, "HX temperature")
+    field(INAA,  "$(P)SAMPLE:TEMP_RAW CP MS")
+	field(CALC,  "SSCANF(AA, \"%lf\")")
+	field(EGU, "")  # units set by unit pusher
+	field(PREC, "3")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
 }
 
 # Read LabVIEW control/indicator "Loop 1" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
@@ -263,8 +285,8 @@ record(ai, "$(P)LOOP2:HEATER")
 # Read LabVIEW control/indicator "target_temp" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
 record(ai, "$(P)HX:TEMP:SP:RBV")
 {
-	field(DESC, "Sample target temperature readback")
-	field(EGU, "")
+	field(DESC, "HX target temperature readback")
+	field(EGU, "")  # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)HX:TEMP:SP")
     field(PREC, "3")
@@ -279,12 +301,11 @@ record(ai, "$(P)HX:TEMP:SP:RBV")
 # Write to LabVIEW control "target_temp" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
 record(ao, "$(P)HX:TEMP:SP")
 {
-    field(DOL, "$(P)HX:TEMP:SP:RBV PP")
 	field(DESC, "HX target temperature")
+	field(EGU, "")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)HX:TEMP:SP")
     field(PREC, "3")
-	field(PINI, "NO")
 	info(archive, "VAL")
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)SIM:HX:TEMP:SP PP")
@@ -296,7 +317,7 @@ record(ao, "$(P)HX:TEMP:SP")
 record(ai, "$(P)SAMPLE:TEMP:SP:RBV")
 {
 	field(DESC, "Sample target temperature readback")
-	field(EGU, "")
+	field(EGU, "")  # units set by unit pusher
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn(lvfp,0,0)SAMPLE:TEMP:SP")
     field(PREC, "3")
@@ -311,7 +332,8 @@ record(ai, "$(P)SAMPLE:TEMP:SP:RBV")
 # Write to LabVIEW control "target_temp 2" on "C:\LabVIEW Modules\Drivers\Scientific Instruments\3D Magnet\Source Code\Vector-control-v16isis.vi"
 record(ao, "$(P)SAMPLE:TEMP:SP")
 {
-	field(DESC, "LabVIEW 'target_temp 2'")
+    field(EGU, "")
+	field(DESC, "Sample target temperature")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)SAMPLE:TEMP:SP")
     field(PREC, "3")
@@ -424,7 +446,7 @@ record(ai, "$(P)PSU:X:SP:RBV")
 record(ao, "$(P)PSU:X:SP")
 {
 	field(DESC, "PSU X target")
-	field(EGU, "") # units set by unit pusher
+	field(EGU, "")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:X:SP")
     field(PREC, "3")
@@ -455,7 +477,7 @@ record(ai, "$(P)PSU:Y:SP:RBV")
 record(ao, "$(P)PSU:Y:SP")
 {
 	field(DESC, "PSU Y target")
-	field(EGU, "") # units set by unit pusher
+	field(EGU, "")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Y:SP")
     field(PREC, "3")
@@ -486,7 +508,7 @@ record(ai, "$(P)PSU:Z:SP:RBV")
 record(ao, "$(P)PSU:Z:SP")
 {
 	field(DESC, "PSU Z target")
-	field(EGU, "") # units set by unit pusher
+	field(EGU, "")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Z:SP")
     field(PREC, "3")
@@ -516,7 +538,7 @@ record(ai, "$(P)PSU:X:RAMP:SP:RBV")
 record(ao, "$(P)PSU:X:RAMP:SP")
 {
 	field(DESC, "PSU X ramp")
-	field(EGU, "") # units set by unit pusher
+	field(EGU, "")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:X:RAMP:SP")
     field(PREC, "3")
@@ -547,7 +569,7 @@ record(ai, "$(P)PSU:Y:RAMP:SP:RBV")
 record(ao, "$(P)PSU:Y:RAMP:SP")
 {
 	field(DESC, "PSU Y ramp")
-	field(EGU, "") # units set by unit pusher
+	field(EGU, "") 
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Y:RAMP:SP")
     field(PREC, "3")
@@ -578,7 +600,7 @@ record(ai, "$(P)PSU:Z:RAMP:SP:RBV")
 record(ao, "$(P)PSU:Z:RAMP:SP")
 {
 	field(DESC, "PSU Z ramp")
-	field(EGU, "") # units set by unit pusher
+	field(EGU, "")
     field(DTYP, "asynFloat64")
     field(OUT,  "@asyn(lvfp,0,0)PSU:Z:RAMP:SP")
     field(PREC, "3")

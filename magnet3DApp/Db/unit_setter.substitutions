@@ -1,11 +1,10 @@
 
+# Set points do not have units set because it will cause it to be processed thus sending a possibly wrong value
+# to the display 
 
 file combo.template { 
   pattern 
     {P,    FROM, TO}
-    {"\$(P)", "PSU:SP:UNITS:RAW", "PSU:X:SP"}
-    {"\$(P)", "PSU:SP:UNITS:RAW", "PSU:Y:SP"}
-    {"\$(P)", "PSU:SP:UNITS:RAW", "PSU:Z:SP"}
     
     {"\$(P)", "PSU:SP:UNITS:RAW", "PSU:X:SP:RBV"}
     {"\$(P)", "PSU:SP:UNITS:RAW", "PSU:Y:SP:RBV"}
@@ -18,9 +17,11 @@ file combo.template {
     {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:X:RAMP:SP:RBV"}
     {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:Y:RAMP:SP:RBV"}
     {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:Z:RAMP:SP:RBV"}
+        
+    {"\$(P)", "SAMPLE:TEMP:UNITS:SP:RAW", "SAMPLE:TEMP"}
+    {"\$(P)", "SAMPLE:TEMP:UNITS:SP:RAW", "SAMPLE:TEMP:SP:RBV"}
     
-    {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:X:RAMP:SP"}
-    {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:Y:RAMP:SP"}
-    {"\$(P)", "PSU:RAMP:SP:UNITS:RAW", "PSU:Z:RAMP:SP"}
+    {"\$(P)", "HX:TEMP:UNITS:SP:RAW", "HX:TEMP"}  
+    {"\$(P)", "HX:TEMP:UNITS:SP:RAW", "HX:TEMP:SP:RBV"}
 }
 
