@@ -240,7 +240,7 @@ record(stringin, "$(P)SAMPLE:TEMP_RAW")
 
 record(scalcout, "$(P)SAMPLE:TEMP")
 {
-	field(DESC, "HX temperature")
+	field(DESC, "Sample temperature")
     field(INAA,  "$(P)SAMPLE:TEMP_RAW CP MS")
 	field(CALC,  "SSCANF(AA, \"%lf\")")
 	field(EGU, "")  # units set by unit pusher
