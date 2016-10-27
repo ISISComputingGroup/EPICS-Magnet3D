@@ -900,7 +900,6 @@ record(calc, "$(P)SIM:MAG:TOTAL:FIELD")
 
 record(calc, "$(P)SIM:MAG:PHI:FIELD")
 {
-    field(SCAN, "Passive")
 	field(INPA, "$(P)SIM:MAG:Z:FIELD CP")
 	field(INPB, "$(P)SIM:MAG:TOTAL:FIELD CP")
     field(SCAN, "Passive")
